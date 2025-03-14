@@ -5,99 +5,173 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NNSR: NERCN NeuroSignal Research Toolbox</title>
     <style>
+        /* 通用样式 */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f9;
+            color: #333;
         }
+
         header {
-            background-color: #4CAF50;
+            background-color: #1E88E5;
             color: white;
-            padding: 20px;
             text-align: center;
+            padding: 50px 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
+
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
         section {
-            padding: 20px;
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
         }
+
         .card {
             background-color: white;
             border-radius: 10px;
-            padding: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
         }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
         .card h3 {
-            color: #4CAF50;
+            color: #1E88E5;
+            font-size: 1.8em;
+            margin-bottom: 15px;
         }
+
         .card a {
-            color: #4CAF50;
-            text-decoration: none;
+            color: #1E88E5;
             font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
+
         .card a:hover {
+            color: #d32f2f;
             text-decoration: underline;
         }
+
+        .img-container {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .img-container img {
+            width: 90%;
+            max-width: 600px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
         footer {
-            background-color: #4CAF50;
+            background-color: #1E88E5;
             color: white;
             text-align: center;
-            padding: 10px;
+            padding: 20px;
             position: fixed;
             width: 100%;
             bottom: 0;
         }
-        .img-container {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
+
+        footer p {
+            margin: 0;
+            font-size: 1.2em;
         }
-        .img-container img {
-            width: 80%;
-            max-width: 600px;
-            border-radius: 10px;
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin-top: 20px;
+            background-color: #1E88E5;
+            color: white;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #1976D2;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            header p {
+                font-size: 1em;
+            }
+
+            .card h3 {
+                font-size: 1.5em;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- 页面头部 -->
     <header>
         <h1>NNSR: NERCN NeuroSignal Research Toolbox</h1>
-        <p>Welcome to the NERCN NeuroSignal Research (NNSR) Toolbox! Explore open-source systems for neuro-signals research.</p>
+        <p>Your platform for cutting-edge neuro-signal research and analysis</p>
     </header>
 
+    <!-- 页面内容 -->
     <section>
         <div class="card">
-            <h3>Code Download</h3>
-            <p>Access the open-source code for NNSR Toolbox:</p>
-            <a href="https://github.com/yourusername/NNSR" target="_blank">Download the source code from GitHub</a>
+            <h3>Download the Source Code</h3>
+            <p>Access the open-source code of NNSR Toolbox on GitHub. Start exploring the power of neuro-signal research:</p>
+            <a href="https://github.com/yourusername/NNSR" target="_blank" class="cta-button">Download on GitHub</a>
         </div>
 
         <div class="card">
             <h3>Independent App Download</h3>
-            <p>Download the standalone application for your system:</p>
-            <a href="https://example.com/download" target="_blank">Download for Windows</a> | 
-            <a href="https://example.com/download" target="_blank">Download for macOS</a> | 
-            <a href="https://example.com/download" target="_blank">Download for Linux</a>
+            <p>Download the standalone application for your system and start using NNSR Toolbox with ease:</p>
+            <a href="https://example.com/download" target="_blank" class="cta-button">Download for Windows</a>
+            <a href="https://example.com/download" target="_blank" class="cta-button">Download for macOS</a>
+            <a href="https://example.com/download" target="_blank" class="cta-button">Download for Linux</a>
         </div>
 
         <div class="card">
             <h3>Example Tutorial</h3>
-            <p>Follow our tutorial to get started with the NNSR Toolbox:</p>
-            <a href="https://example.com/tutorial" target="_blank">View Tutorial</a>
+            <p>Follow our step-by-step tutorial to understand how to utilize the NNSR Toolbox effectively:</p>
+            <a href="https://example.com/tutorial" target="_blank" class="cta-button">View Tutorial</a>
         </div>
 
         <div class="card">
-            <h3>Example Data</h3>
-            <p>Download example datasets to test the tools in the NNSR Toolbox:</p>
-            <a href="https://example.com/data" target="_blank">Download Example Data</a>
+            <h3>Download Example Data</h3>
+            <p>Get started with the NNSR Toolbox by using the provided example datasets:</p>
+            <a href="https://example.com/data" target="_blank" class="cta-button">Download Example Data</a>
         </div>
 
+        <!-- 图片展示 -->
         <div class="img-container">
             <img src="https://your-image-link.com" alt="NNSR Toolbox Screenshot">
         </div>
     </section>
 
+    <!-- 页脚 -->
     <footer>
         <p>&copy; 2025 NERCN NeuroSignal Research Toolbox. All rights reserved.</p>
     </footer>
