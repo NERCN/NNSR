@@ -18,8 +18,16 @@
             background-color: #1E88E5;
             color: white;
             text-align: center;
-            padding: 50px 20px;
+            padding: 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        header img {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100px; /* 实验室LOGO大小 */
         }
 
         header h1 {
@@ -36,6 +44,16 @@
             max-width: 1200px;
             margin: 30px auto;
             padding: 0 20px;
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .logo-container img {
+            width: 150px; /* NNSR工具箱LOGO的大小 */
+            margin-top: 20px;
         }
 
         .card {
@@ -133,9 +151,16 @@
 
     <!-- 页面头部 -->
     <header>
+        <!-- 实验室LOGO -->
+        <img src="https://your-laboratory-logo-url.com" alt="实验室LOGO">
         <h1>NNSR: NERCN NeuroSignal Research Toolbox</h1>
         <p>Your platform for cutting-edge neuro-signal research and analysis</p>
     </header>
+
+    <!-- NNSR工具箱LOGO部分 -->
+    <section class="logo-container">
+        <img src="https://your-nnsr-logo-url.com" alt="NNSR Toolbox Logo">
+    </section>
 
     <!-- 页面内容 -->
     <section>
@@ -165,9 +190,14 @@
             <a href="https://example.com/data" target="_blank" class="cta-button">Download Example Data</a>
         </div>
 
-        <!-- 图片展示 -->
+        <!-- 主视图部分 -->
         <div class="img-container">
-            <img src="https://your-image-link.com" alt="NNSR Toolbox Screenshot">
+            <img src="https://your-main-view-image-url.com" alt="Main View Screenshot">
+        </div>
+
+        <!-- 概念图部分 -->
+        <div class="img-container">
+            <img src="https://your-concept-image-url.com" alt="Concept Diagram">
         </div>
     </section>
 
