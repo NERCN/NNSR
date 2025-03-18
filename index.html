@@ -1,47 +1,67 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NNSR - Neural Signal Research Platform</title>
-    <!-- 添加Google字体 -->
+    <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- 添加FontAwesome图标 -->
+    <!-- FontAwesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- 添加AOS动画库 -->
+    <!-- AOS animation library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <script>
+        // Set default language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Default language is English
+            hideAllChineseElements();
+            showAllEnglishElements();
+        });
+        
+        function hideAllChineseElements() {
+            document.querySelectorAll('.chinese').forEach(el => {
+                el.style.display = 'none';
+            });
+        }
+        
+        function showAllEnglishElements() {
+            document.querySelectorAll('.english').forEach(el => {
+                el.style.display = 'block';
+            });
+        }
+    </script>
     <style>
         :root {
-            /* 主色调 - 紫色系 */
-            --primary: #5C307D;         /* 紫 */
-            --primary-light: #7E5198;   /* 浅紫 */
-            --primary-dark: #451D63;    /* 深紫 */
+            /* Main colors - purple theme */
+            --primary: #5C307D;         /* Purple */
+            --primary-light: #7E5198;   /* Light purple */
+            --primary-dark: #451D63;    /* Dark purple */
             
-            /* 辅助色 - 协调的浅紫和深紫 */
-            --accent: #8C6EAF;          /* 柔和的淡紫色 */
-            --accent-light: #A791C4;    /* 更浅的紫色 */
-            --accent-dark: #6D458D;     /* 中等深紫色 */
+            /* Accent colors */
+            --accent: #8C6EAF;          /* Soft light purple */
+            --accent-light: #A791C4;    /* Lighter purple */
+            --accent-dark: #6D458D;     /* Medium dark purple */
             
-            /* 背景色 */
-            --secondary: #F5F0FF;       /* 非常浅的紫色背景 */
-            --dark-bg: #2D2047;         /* 深紫色背景 */
-            --darker-bg: #1B1233;       /* 更深的背景色用于页脚 */
-            --card-bg: #ffffff;         /* 卡片背景 */
+            /* Background colors */
+            --secondary: #F5F0FF;       /* Very light purple background */
+            --dark-bg: #2D2047;         /* Dark purple background */
+            --darker-bg: #1B1233;       /* Deeper background for footer */
+            --card-bg: #ffffff;         /* Card background */
             
-            /* 文本色 */
-            --text: #30284D;            /* 深色文本 */
-            --text-light: #4F4A68;      /* 次要文本 */
-            --text-on-dark: #E8E4FF;    /* 深色背景上的文本 */
+            /* Text colors */
+            --text: #30284D;            /* Dark text */
+            --text-light: #4F4A68;      /* Secondary text */
+            --text-on-dark: #E8E4FF;    /* Text on dark background */
             --white: #ffffff;
             
-            /* 效果 */
+            /* Effects */
             --shadow: rgba(92, 48, 125, 0.15);
             --gradient: linear-gradient(135deg, var(--primary), var(--primary-dark));
             --accent-gradient: linear-gradient(135deg, var(--accent), var(--accent-dark));
             
-            /* 兼容性变量 */
+            /* Compatibility variables */
             --red: var(--primary);
             --red-light: var(--primary-light);
             --red-dark: var(--primary-dark);
@@ -85,18 +105,23 @@
             align-items: center;
         }
         
+        /* Updated nav-logo to include both logos */
         .nav-logo {
             display: flex;
             align-items: center;
-            font-weight: 600;
-            font-size: 1.3rem;
-            color: var(--primary);
             text-decoration: none;
         }
         
-        .nav-logo img {
+        .nav-logo-text {
+            font-weight: 600;
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-left: 10px;
+        }
+        
+        .logo-img {
             height: 40px;
-            margin-right: 10px;
+            margin-right: 15px;
         }
         
         .nav-links {
@@ -131,7 +156,6 @@
             width: 100%;
         }
         
-        /* 修改语言切换按钮 */
         .language-switch {
             background: var(--primary);
             color: var(--white);
@@ -165,7 +189,6 @@
             box-shadow: 0 4px 16px var(--shadow);
             position: relative;
             overflow: hidden;
-            /* 使用主色系边框 */
             border-bottom: 5px solid var(--primary-light);
         }
         
@@ -187,7 +210,6 @@
             position: relative;
         }
         
-        /* 添加浅紫色下划线到标题 */
         header h1:after {
             content: '';
             position: absolute;
@@ -234,7 +256,6 @@
             display: inline-block;
         }
         
-        /* 添加淡紫色元素到标题 */
         h2:after {
             content: '';
             display: block;
@@ -259,36 +280,6 @@
             text-align: center;
         }
         
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 2.5rem 0;
-            gap: 5rem;
-        }
-        
-        .logo-container div {
-            text-align: center;
-        }
-        
-        .logo-container img {
-            width: 180px;
-            height: 180px;
-            object-fit: contain;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px var(--shadow);
-            margin-bottom: 1rem;
-            transition: transform 0.3s;
-            /* 统一使用清华紫边框 */
-            border: 3px solid var(--primary-light);
-            padding: 10px;
-            background-color: var(--white);
-        }
-        
-        .logo-container img:hover {
-            transform: scale(1.05);
-        }
-        
         .card-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -308,7 +299,6 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            /* 统一使用清华紫顶部边框 */
             border-top: 4px solid var(--primary);
         }
         
@@ -343,7 +333,6 @@
             margin-bottom: 1.5rem;
         }
         
-        /* 按钮风格 - 保持原有样式 */
         .btn {
             display: inline-block;
             background: var(--gradient);
@@ -374,7 +363,6 @@
             box-shadow: 0 6px 12px var(--shadow);
         }
         
-        /* 重新设计核心功能部分 */
         .feature-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -397,13 +385,11 @@
             overflow: hidden;
         }
         
-        /* 第一个和第四个元素增大尺寸 */
         .feature:nth-child(1), .feature:nth-child(4) {
             grid-column: span 2;
             padding: 2.5rem;
         }
         
-        /* 使用统一的边框颜色 */
         .feature {
             border-left: 4px solid var(--primary);
         }
@@ -423,7 +409,6 @@
             font-weight: 600;
         }
         
-        /* 统一图标颜色 */
         .feature-icon {
             font-size: 2rem;
             color: var(--white);
@@ -439,14 +424,12 @@
             background: var(--primary);
         }
         
-        /* 深色背景的演示部分 */
         .demo-section {
             background-color: var(--dark-bg);
             margin: 4rem -3rem;
             padding: 3rem;
             color: var(--text-on-dark);
             border-radius: 0;
-            /* 统一使用主色系边框 */
             border-top: 5px solid var(--primary-light);
             border-bottom: 5px solid var(--primary-light);
         }
@@ -484,7 +467,6 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s;
-            /* 统一边框颜色 */
             border: 3px solid var(--accent);
         }
         
@@ -505,7 +487,6 @@
             color: var(--text-light);
         }
         
-        /* 使用统一的图标颜色 */
         .applications-list li:before {
             content: '\f00c';
             font-family: 'Font Awesome 5 Free';
@@ -521,7 +502,6 @@
             border-radius: 12px;
             text-align: center;
             margin-top: 2rem;
-            /* 使用主色系边框 */
             border: 1px solid var(--primary-light);
             max-width: 700px;
             margin-left: auto;
@@ -550,14 +530,12 @@
             color: var(--accent);
         }
         
-        /* 页脚 */
         footer {
             background-color: var(--darker-bg);
             color: var(--text-on-dark);
             text-align: center;
             padding: 3rem 0;
             margin-top: 4rem;
-            /* 使用主色系顶部边框 */
             border-top: 5px solid var(--primary);
         }
         
@@ -631,7 +609,6 @@
             color: var(--primary-light);
         }
         
-        /* 修改社交图标样式 */
         .social-icons {
             display: flex;
             flex-wrap: wrap;
@@ -665,7 +642,6 @@
             transition: opacity 0.3s;
         }
         
-        /* 统一悬停效果 */
         .social-icons a:hover {
             transform: translateY(-5px);
             background-color: var(--primary);
@@ -685,7 +661,6 @@
             color: rgba(232, 228, 255, 0.7);
         }
         
-        /* 装饰元素 */
         .decoration {
             position: absolute;
             border-radius: 50%;
@@ -707,7 +682,6 @@
             right: 20%;
         }
         
-        /* 紫色装饰元素 */
         .purple-dot {
             position: absolute;
             background-color: var(--primary);
@@ -729,7 +703,117 @@
             left: 5%;
         }
         
-        /* 响应式设计 */
+        /* Modal styles for WeChat popup */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal-content {
+            background-color: var(--white);
+            margin: 15% auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+            animation: modalopen 0.4s;
+        }
+        
+        @keyframes modalopen {
+            from {opacity: 0; transform: translateY(-20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: var(--primary);
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .modal h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .wechat-id {
+            font-size: 1.1rem;
+            padding: 10px;
+            background-color: var(--secondary);
+            border-radius: 8px;
+            margin: 15px 0;
+            display: inline-block;
+            font-weight: 500;
+            color: var(--text);
+        }
+        
+        /* Language selection modal */
+        .language-modal {
+            display: block; /* Start visible */
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .language-modal-content {
+            background-color: var(--white);
+            margin: 15% auto;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            text-align: center;
+            animation: modalopen 0.5s;
+        }
+        
+        .language-option {
+            display: block;
+            width: 80%;
+            margin: 15px auto;
+            padding: 15px;
+            background: var(--accent-gradient);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px var(--shadow);
+        }
+        
+        .language-option:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px var(--shadow);
+        }
+        
+        /* Responsive design */
         @media (max-width: 768px) {
             header {
                 padding: 3rem 0;
@@ -772,11 +856,6 @@
                 padding: 2rem;
             }
             
-            .logo-container {
-                gap: 2rem;
-            }
-            
-            /* 在移动端调整特性布局 */
             .feature-container {
                 grid-template-columns: 1fr;
             }
@@ -785,22 +864,66 @@
                 grid-column: span 1;
             }
             
-            /* 移动端调整社交图标 */
             .social-icons {
                 justify-content: center;
+            }
+            
+            .nav-logo {
+                flex-wrap: wrap;
+            }
+            
+            .logo-img {
+                height: 30px;
+                margin-right: 8px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- 导航栏 -->
+    <!-- Language Selection Modal -->
+    <div id="languageModal" class="language-modal">
+        <div class="language-modal-content">
+            <h3>Please select your language / 请选择您的语言</h3>
+            <button class="language-option" onclick="selectLanguage('english')">English</button>
+            <button class="language-option" onclick="selectLanguage('chinese')">中文</button>
+        </div>
+    </div>
+    
+    <script>
+        // Set initial language when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Make sure the language selection modal is visible
+            document.getElementById('languageModal').style.display = 'block';
+            
+            // Default to English on initial load
+            setLanguage('english');
+        });
+    </script>
+
+    <!-- WeChat Modal -->
+    <div id="wechatModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeWechatModal()">&times;</span>
+            <div class="modal-title chinese">WeChat 联系方式</div>
+            <div class="modal-title english" style="display:none;">WeChat Contact</div>
+            <h3 class="chinese">请搜索添加以下微信号</h3>
+            <h3 class="english" style="display:none;">Please search and add WeChat ID</h3>
+            <div class="wechat-id">LingxiaoGuan5588</div>
+        </div>
+    </div>
+    
+    <!-- Navigation bar -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="nav-logo">
-                <img src="Pic/icon_32.png" alt="NNSR Logo" class="chinese">
-                <span class="chinese">NNSR 神经信号研究</span>
-                <span class="english" style="display:none;">NNSR Neural Signal Research</span>
-            </a>
+            <div class="nav-logo">
+                <!-- Added both logos to the navbar -->
+                <img src="Pic/NERCN_LOGO.png" alt="Lab Logo" class="logo-img">
+                <img src="Pic/NNSR_LOGO.jpg" alt="NNSR Logo" class="logo-img">
+                <div class="nav-logo-text">
+                    <span class="chinese">NNSR NeuralSignal Research</span>
+                    <span class="english" style="display:none;">NNSR NeuralSignal Research</span>
+                </div>
+            </div>
             <div class="nav-links">
                 <a href="#features" class="chinese">功能</a>
                 <a href="#features" class="english" style="display:none;">Features</a>
@@ -823,7 +946,7 @@
         </div>
     </nav>
     
-    <!-- 头部区域 -->
+    <!-- Header section -->
     <header>
         <div class="decoration decoration-1"></div>
         <div class="decoration decoration-2"></div>
@@ -841,22 +964,13 @@
         <section>
             <p class="intro-text chinese">NNSR专为处理和分析神经信号而设计，提供全面的工具集，助力深部脑刺激及神经科学研究突破。</p>
             <p class="intro-text english" style="display:none;">NNSR is designed for processing and analyzing neural signals, offering comprehensive tools for deep brain stimulation and breakthroughs in neuroscience research.</p>
-            
-            <div class="logo-container" data-aos="fade-up">
-                <div>
-                    <img src="Pic/NERCN_LOGO.png" alt="实验室标志" />
-                </div>
-                <div>
-                    <img src="Pic/NNSR_LOGO.jpg" alt="NNSR标志" />
-                </div>
-            </div>
         </section>
         
         <section id="features">
             <h2 class="chinese" data-aos="fade-up">核心功能</h2>
             <h2 class="english" style="display:none;" data-aos="fade-up">Key Features</h2>
             
-            <!-- 优化后的特性布局 -->
+            <!-- Optimized feature layout -->
             <div class="feature-container">
                 <div class="feature" data-aos="fade-up" data-aos-delay="100">
                     <div class="feature-icon"><i class="fa-solid fa-brain"></i></div>
@@ -904,8 +1018,8 @@
             <div class="gif-container" data-aos="fade-up">
                 <video autoplay loop muted playsinline>
                     <source src="Pic/0I8A5190.mp4" type="video/mp4">
-                    <!-- 如果视频不支持,就显示GIF -->
-                    <img src="Pic/0I8A5186.JPG" alt="NNSR" />
+                    <!-- Fallback to image if video isn't supported -->
+                    <img src="Pic/Close_loop.gif" alt="NNSR" />
                 </video>
                 <p class="chinese">NNSR界面展示自动信号处理和特征提取功能</p>
                 <p class="english" style="display:none;">NNSR interface demonstrating automated signal processing and feature extraction</p>
@@ -915,10 +1029,10 @@
             <h2 class="english" style="display:none;" data-aos="fade-up">Interface Examples</h2>
             
             <div class="image-gallery" data-aos="fade-up">
-                <img src="Pic/FIG3.jpg" alt="伪迹识别" />
-                <img src="Pic/FIG2.jpg" alt="信号处理" />
-                <img src="Pic/FIG1.jpg" alt="特征提取" />
-                <img src="Pic/FIG4.jpg" alt="实时分析" />
+                <img src="Pic/FIG3.jpg" alt="Artifact Identification" />
+                <img src="Pic/FIG2.jpg" alt="Signal Processing" />
+                <img src="Pic/FIG1.jpg" alt="Feature Extraction" />
+                <img src="Pic/FIG4.jpg" alt="Real-time Analysis" />
             </div>
         </section>
         
@@ -1020,7 +1134,7 @@
                 <h3 class="chinese">联系方式</h3>
                 <h3 class="english" style="display:none;">Contact Us</h3>
                 <div class="social-icons">
-                    <a href="#">
+                    <a href="#" id="wechatLink">
                         <i class="fa-brands fa-weixin"></i>
                         <span class="chinese">微信</span>
                         <span class="english" style="display:none;">WeChat</span>
@@ -1030,23 +1144,23 @@
                         <span class="chinese">邮箱</span>
                         <span class="english" style="display:none;">Email</span>
                     </a>
-                    <a href="#">
+                    <a href="#default">
                         <i class="fa-brands fa-bilibili"></i>
                         <span class="chinese">哔哩哔哩</span>
                         <span class="english" style="display:none;">Bilibili</span>
                     </a>
-                    <!-- 社交媒体图标 -->
-                    <a href="#">
+                    <!-- Social media icons with default links -->
+                    <a href="#default">
                         <i class="fa-brands fa-twitter"></i>
                         <span class="chinese">推特</span>
                         <span class="english" style="display:none;">Twitter</span>
                     </a>
-                    <a href="#">
+                    <a href="#default">
                         <i class="fa-brands fa-youtube"></i>
                         <span class="chinese">油管</span>
                         <span class="english" style="display:none;">YouTube</span>
                     </a>
-                    <a href="#">
+                    <a href="#default">
                         <i class="fa-brands fa-github"></i>
                         <span class="chinese">GitHub</span>
                         <span class="english" style="display:none;">GitHub</span>
@@ -1060,52 +1174,97 @@
         </div>
     </footer>
     
-    <!-- 引入JavaScript库 -->
+    <!-- JavaScript libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     
     <script>
-        // 初始化AOS动画库
+        // Initialize AOS animation library
         AOS.init({
             duration: 800,
             easing: 'ease-out',
             once: true
         });
         
-        // 当前语言状态
-        let currentLanguage = 'english';
+        // Current language state
+        let currentLanguage = 'english'; // Default to English
         
-        // 切换语言函数
-        function toggleLanguage() {
+        // Language selection function
+        function selectLanguage(language) {
+            const languageModal = document.getElementById('languageModal');
+            languageModal.style.display = 'none';
+            
+            // Set the language directly rather than toggling
+            setLanguage(language);
+        }
+        
+        // Set language function
+        function setLanguage(language) {
             const chineseElements = document.querySelectorAll('.chinese');
             const englishElements = document.querySelectorAll('.english');
             
-            if (currentLanguage === 'chinese') {
-                // 切换到英文
+            if (language === 'english') {
+                // Set to English
                 chineseElements.forEach(el => el.style.display = 'none');
                 englishElements.forEach(el => el.style.display = 'block');
                 currentLanguage = 'english';
                 document.documentElement.lang = 'en';
             } else {
-                // 切换到中文
+                // Set to Chinese
                 chineseElements.forEach(el => el.style.display = 'block');
                 englishElements.forEach(el => el.style.display = 'none');
                 currentLanguage = 'chinese';
                 document.documentElement.lang = 'zh-CN';
             }
+            
+            console.log('Language set to:', language);
         }
         
-        // 移动菜单切换
+        // Toggle language function
+        function toggleLanguage() {
+            if (currentLanguage === 'chinese') {
+                setLanguage('english');
+            } else {
+                setLanguage('chinese');
+            }
+        }
+        
+        // Mobile menu toggle
         function toggleMobileMenu() {
             const navLinks = document.querySelector('.nav-links');
             navLinks.classList.toggle('active');
         }
         
-        // 平滑滚动到锚点
+        // WeChat modal functions
+        function openWechatModal() {
+            const modal = document.getElementById('wechatModal');
+            modal.style.display = 'block';
+        }
+        
+        function closeWechatModal() {
+            const modal = document.getElementById('wechatModal');
+            modal.style.display = 'none';
+        }
+        
+        // Add event listener to WeChat link
+        document.getElementById('wechatLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            openWechatModal();
+        });
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const wechatModal = document.getElementById('wechatModal');
+            if (event.target == wechatModal) {
+                wechatModal.style.display = 'none';
+            }
+        }
+        
+        // Smooth scroll to anchors
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 
-                // 关闭移动菜单(如果打开)
+                // Close mobile menu if open
                 const navLinks = document.querySelector('.nav-links');
                 if (navLinks.classList.contains('active')) {
                     navLinks.classList.remove('active');
