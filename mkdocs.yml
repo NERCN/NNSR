@@ -1,5 +1,15 @@
-site_name: NNSR manual Documentation
+site_name: NNSR Toolbox Documentation
 nav:
-  - Build: nnsr-toolbox-manual.md  # 引用 build.md 文件
+  - 首页: index.md
+  - 安装指南: installation.md
+  - 软件功能: features.md
+  - 离线分析系统: offline-analysis.md
+  - 在线分析系统: online-analysis.md
+  - 应用场景: use-cases.md
+  - 常见问题: faq.md
+  - 技术支持: support.md
 theme:
   name: 'material'
+markdown_extensions:
+  - toc:
+      permalink: True
