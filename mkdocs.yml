@@ -1,0 +1,5 @@
+site_name: NNSR manual Documentation
+nav:
+  - Build: nnsr-toolbox-manual.md  # 引用 build.md 文件
+theme:
+  name: 'material'
