@@ -1245,10 +1245,10 @@
             
             <ul class="applications-list" data-aos="fade-up">
                 <!-- Added citation link -->
-                <li class="chinese">处理帕金森病患者的DBS-LFP信号
+                <li class="chinese">处理DBS-LFP信号
                     <a href="#" class="citation-link" onclick="showArticle('dbs-article')">参考文献 <i class="fas fa-external-link-alt"></i></a>
                 </li>
-                <li class="english" style="display:none;">Processing DBS-LFP signals in Parkinson's patients
+                <li class="english" style="display:none;">Processing DBS-LFP signals
                     <a href="#" class="citation-link" onclick="showArticle('dbs-article')">Citation <i class="fas fa-external-link-alt"></i></a>
                 </li>
                 
@@ -1455,23 +1455,23 @@
             
             if (articleId === 'dbs-article') {
                 articleHTML = `
-                    <h3>${currentLanguage === 'chinese' ? 'DBS-LFP信号处理在帕金森病研究中的应用' : 'Application of DBS-LFP Signal Processing in Parkinson\'s Disease Research'}</h3>
+                    <h3>${currentLanguage === 'chinese' ? 'DBS-LFP信号处理的应用' : 'Application of DBS-LFP Signal Processing'}</h3>
                     <p>${currentLanguage === 'chinese' ? 
-                      '这项研究利用NNSR平台处理来自帕金森病患者的DBS-LFP信号，成功识别了与运动症状相关的特定频带活动。通过对贝塔频带（13-30Hz）的实时分析，研究人员能够预测症状波动并相应地调整刺激参数。' : 
-                      'This study utilized the NNSR platform to process DBS-LFP signals from Parkinson\'s disease patients, successfully identifying specific frequency band activities associated with motor symptoms. Through real-time analysis of beta band (13-30Hz) activity, researchers were able to predict symptom fluctuations and adjust stimulation parameters accordingly.'}</p>
+                      '利用NNSR平台可以处理来自药物难治性抑郁患者/帕金森病患者的DBS-LFP信号，并成功识别了特定频带活动，促进生物标志物的研究。' : 
+                      'The NNSR platform can process DBS-LFP signals from patients with drug-resistant depression/Parkinson's disease and successfully identify specific frequency band activities, promoting research on biomarkers.'}</p>
                     <p>${currentLanguage === 'chinese' ? 
-                      '引用: 张某, 李某, 等. (2024). 基于深度学习的神经信号处理在帕金森病个性化治疗中的应用. 中国神经科学杂志, 37(2), 112-125.' : 
-                      'Citation: Zhang et al. (2024). Application of Deep Learning-Based Neural Signal Processing in Personalized Treatment of Parkinson\'s Disease. Chinese Journal of Neuroscience, 37(2), 112-125.'}</p>
+                      '引用: Wang, Z., Jiang, C., Guan, L. et al. Deep brain stimulation of habenula reduces depressive symptoms and modulates brain activities in treatment-resistant depression. Nat. Mental Health 2, 1045–1052 (2024).；Guan L, Yu H, Chen Y, et al. Subthalamic γ Oscillation Underlying Rapid Eye Movement Sleep Abnormality in Parkinsonian Patients. Mov Disord. 2025;40(3):456-467.' : 
+                      'Citation: Wang, Z., Jiang, C., Guan, L. et al. Deep brain stimulation of habenula reduces depressive symptoms and modulates brain activities in treatment-resistant depression. Nat. Mental Health 2, 1045–1052 (2024).；Guan L, Yu H, Chen Y, et al. Subthalamic γ Oscillation Underlying Rapid Eye Movement Sleep Abnormality in Parkinsonian Patients. Mov Disord. 2025;40(3):456-467.'}</p>
                 `;
             } else if (articleId === 'bci-article') {
                 articleHTML = `
                     <h3>${currentLanguage === 'chinese' ? 'NNSR在实时脑机接口研究中的应用' : 'Application of NNSR in Real-time Brain-Computer Interface Research'}</h3>
                     <p>${currentLanguage === 'chinese' ? 
-                      'NNSR平台的低延迟信号处理能力使其成为开发实时脑机接口的理想工具。研究团队利用NNSR的自动信号清洗和特征提取功能，开发了一个能够在毫秒级延迟内解码运动意图的BCI系统。该系统在康复机器人控制试验中取得了显著成果。' : 
-                      'The low-latency signal processing capabilities of the NNSR platform make it an ideal tool for developing real-time brain-computer interfaces. The research team utilized NNSR\'s automatic signal cleaning and feature extraction functions to develop a BCI system capable of decoding motor intentions within millisecond-level delays. The system achieved significant results in rehabilitation robot control trials.'}</p>
+                      'NNSR平台的低延迟信号处理能力使其成为开发实时脑机接口的理想工具。研究团队利用NNSR的自动信号清洗和特征提取功能，开发了一个能够在毫秒级延迟内解码运动意图的BCI系统。' : 
+                      'The low-latency signal processing capabilities of the NNSR platform make it an ideal tool for developing real-time brain-computer interfaces. The research team utilized NNSR\'s automatic signal cleaning and feature extraction functions to develop a BCI system capable of decoding motor intentions within millisecond-level delays.'}</p>
                     <p>${currentLanguage === 'chinese' ? 
-                      '引用: 王某, 赵某, 等. (2025). 基于NNSR平台的实时脑机接口系统开发及应用. 生物医学工程学报, 43(1), 78-92.' : 
-                      'Citation: Wang et al. (2025). Development and Application of Real-time Brain-Computer Interface System Based on NNSR Platform. Journal of Biomedical Engineering, 43(1), 78-92.'}</p>
+                      '引用:  Yue Chen, Guokun Zhang, Lingxiao Guan, Chen Gong, Bozhi Ma, Hongwei Hao, Luming Li, Progress in the development of a fully implantable brain–computer interface: the potential of sensing-enabled neurostimulators, National Science Review, Volume 9, Issue 10, October 2022, nwac099' : 
+                      'Citation: Yue Chen, Guokun Zhang, Lingxiao Guan, Chen Gong, Bozhi Ma, Hongwei Hao, Luming Li, Progress in the development of a fully implantable brain–computer interface: the potential of sensing-enabled neurostimulators, National Science Review, Volume 9, Issue 10, October 2022, nwac099'}</p>
                 `;
             }
             
