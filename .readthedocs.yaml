@@ -8,4 +8,5 @@ build:
       - pip install mkdocs
       - pip install mkdocs-material
     build:
-      - mkdocs build --clean --site-dir $READTHEDOCS_OUTPUT/html --config-file mkdocs.yml
+      commands:
+        - mkdocs build --clean --site-dir $READTHEDOCS_OUTPUT/html --config-file mkdocs.yml
