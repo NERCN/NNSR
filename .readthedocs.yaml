@@ -8,6 +8,6 @@ build:
       - pip install mkdocs
       - pip install mkdocs-material
     build:
-      # 直接使用 commands 数组来指定构建命令
+      # 使用 'commands' 来定义构建步骤
       commands:
         - mkdocs build --clean --site-dir $READTHEDOCS_OUTPUT/html --config-file mkdocs.yml
