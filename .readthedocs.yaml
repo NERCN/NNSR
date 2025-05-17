@@ -5,8 +5,7 @@ build:
     python: "3.9"
   jobs:
     pre_install:
-      - pip install mkdocs mkdocs-material
-    commands:
+      - pip install mkdocs
+      - pip install mkdocs-material
+    build:
       - mkdocs build --clean --site-dir $READTHEDOCS_OUTPUT/html --config-file mkdocs.yml
-mkdocs:
-  configuration: mkdocs.yml
