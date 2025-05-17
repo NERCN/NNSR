@@ -1,6 +1,7 @@
 version: 2
 build:
-  os: ubuntu-20.04  # 或者你想使用的操作系统
-  image: "python:3.9"  # 根据需要选择适合的镜像
+  os: ubuntu-20.04
+  tools:
+    - mkdocs
 sphinx:
   configuration: docs/conf.py
