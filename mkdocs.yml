@@ -1,15 +1,57 @@
-site_name: NNSR Toolbox Documentation
+site_name: NNSR
+site_description: NERCN Neural Signal Reader Documentation
+site_author: NERCN Team
+
+# 仓库链接
+repo_url: https://github.com/NERCN/NNSR
+edit_uri: edit/main/docs/
+
+# 版权信息
+copyright: Copyright &copy; 2023 - 2025 NERCN Team
+
+# 导航结构
 nav:
   - 首页: index.md
   - 安装指南: installation.md
-  - 软件功能: features.md
-  - 离线分析系统: offline-analysis.md
-  - 在线分析系统: online-analysis.md
-  - 应用场景: use-cases.md
+  - 功能特性: features.md
+  - 使用场景: use-cases.md
+  - 在线分析: online-analysis.md
+  - 离线分析: offline-analysis.md
   - 常见问题: faq.md
   - 技术支持: support.md
+
+# 主题设置
 theme:
-  name: 'material'
+  name: material
+  language: zh
+  features:
+    - navigation.tabs
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+  palette:
+    primary: indigo
+    accent: indigo
+
+# Markdown扩展
 markdown_extensions:
-  - toc:
-      permalink: True
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+
+# 额外JavaScript和CSS
+extra_javascript:
+  - javascripts/extra.js
+
+extra_css:
+  - stylesheets/extra.css
+
+# 搜索设置
+plugins:
+  - search
