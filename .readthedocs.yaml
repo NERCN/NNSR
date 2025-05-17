@@ -8,5 +8,7 @@ build:
       - pip install mkdocs
       - pip install mkdocs-material
     build:
+      # 用适当的构建类型替换 'commands'
+      type: html  # 指定构建目标类型为 HTML
       commands:
         - mkdocs build --clean --site-dir $READTHEDOCS_OUTPUT/html --config-file mkdocs.yml
