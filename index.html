@@ -1038,7 +1038,7 @@
     <div id="imagePopup" class="image-popup">
         <span class="close-popup" onclick="closeImagePopup()">&times;</span>
         <div class="popup-content">
-            <img id="popupImage" src="" alt="Detail Image">
+            <img id="popupImage" alt="Pic/FIG6.jpg">
         </div>
     </div>
     
@@ -1155,7 +1155,7 @@
             
             <div class="gif-container" data-aos="fade-up">
                 <video id="demoVideo" autoplay loop muted playsinline>
-                    <source src="Pic/0I8A5190.mp4" type="video/mp4">
+                    <source src="Pic/online-analysis.mp4" type="video/mp4">
                     <!-- Fallback to image if video isn't supported -->
                     <img src="Pic/0I8A5186.jpg" alt="NNSR" />
                 </video>
@@ -1203,15 +1203,15 @@
                     <p class="chinese">获取独立Windows应用程序，无需额外软件。支持信号处理与分析的全套功能。</p>
                     <p class="english" style="display:none;">Get the standalone Windows application, no additional software required. Features full signal processing and analysis capabilities.</p>
                     <!-- Updated with actual link placeholder -->
-                    <a href="https://example.com/download/nnsr-v1.0" class="btn btn-red chinese">下载NNSR v1.0</a>
-                    <a href="https://example.com/download/nnsr-v1.0" class="btn btn-red english" style="display:none;">Download NNSR v1.0</a>
+                    <a href="https://example.com/download/nnsr-v1.0" class="btn btn-red chinese">下载NNSR v0.2.0</a>
+                    <a href="https://example.com/download/nnsr-v1.0" class="btn btn-red english" style="display:none;">Download NNSR v0.2.0</a>
                 </div>
                 <div class="card" data-aos="fade-up" data-aos-delay="200">
                     <div class="card-icon"><i class="fa-brands fa-github"></i></div>
                     <h3 class="chinese">源代码</h3>
                     <h3 class="english" style="display:none;">Source Code</h3>
-                    <p class="chinese">访问MATLAB源代码，定制并集成到研究工作流程中。开源协作，欢迎贡献。</p>
-                    <p class="english" style="display:none;">Access MATLAB source code for customization and workflow integration. Open-source collaboration welcomed.</p>
+                    <p class="chinese">访问MATLAB源代码，定制并集成到研究工作流程中。</p>
+                    <p class="english" style="display:none;">Access MATLAB source code for customization and workflow integration.</p>
                     <!-- Updated with GitHub link placeholder -->
                     <a href="https://github.com/nercn/nnsr" class="btn chinese">GitHub仓库</a>
                     <a href="https://github.com/nercn/nnsr" class="btn english" style="display:none;">GitHub Repo</a>
@@ -1220,8 +1220,8 @@
                     <div class="card-icon"><i class="fa-solid fa-book"></i></div>
                     <h3 class="chinese">文档</h3>
                     <h3 class="english" style="display:none;">Documentation</h3>
-                    <p class="chinese">全面的用户指南和技术文档。包含详细API参考和工作流程示例。</p>
-                    <p class="english" style="display:none;">Comprehensive user guide and technical documentation. Includes detailed API references and workflow examples.</p>
+                    <p class="chinese">全面的用户指南和技术文档。包含详细参考和工作流程示例。</p>
+                    <p class="english" style="display:none;">Comprehensive user guide and technical documentation. Includes detailed references and workflow examples.</p>
                     <!-- Updated with documentation link placeholder -->
                     <a href="https://docs.nercn-nnsr.org" class="btn btn-red chinese">阅读文档</a>
                     <a href="https://docs.nercn-nnsr.org" class="btn btn-red english" style="display:none;">Read Docs</a>
@@ -1254,10 +1254,10 @@
                 
                 <!-- Added popup image link -->
                 <li class="chinese">监测药物波动期间的神经活动变化
-                    <a href="#" class="citation-link" onclick="showImage('Pic/medication-fluctuation.jpg')">查看图表 <i class="fas fa-image"></i></a>
+                    <a href="#" class="citation-link" onclick="showImage('Pic/FIG6.jpg')">查看图表 <i class="fas fa-image"></i></a>
                 </li>
                 <li class="english" style="display:none;">Monitoring neural activity during medication fluctuations
-                    <a href="#" class="citation-link" onclick="showImage('Pic/medication-fluctuation.jpg')">View Chart <i class="fas fa-image"></i></a>
+                    <a href="#" class="fa-image" onclick="showImage('Pic/FIG6.jpg')">View Chart <i class="fas fa-image"></i></a>
                 </li>
                 
                 <li class="chinese">实时神经反馈用于闭环DBS研究</li>
@@ -1457,21 +1457,21 @@
                 articleHTML = `
                     <h3>${currentLanguage === 'chinese' ? 'DBS-LFP信号处理在帕金森病研究中的应用' : 'Application of DBS-LFP Signal Processing in Parkinson\'s Disease Research'}</h3>
                     <p>${currentLanguage === 'chinese' ? 
-                      '研究利用NNSR平台处理来自帕金森病患者的DBS-LFP信号，成功识别了与运动症状相关的特定频带活动。' : 
-                      'This study utilized the NNSR platform to process DBS-LFP signals from Parkinson\'s disease patients, successfully identifying specific frequency band activities associated with motor symptoms.'}</p>
+                      '这项研究利用NNSR平台处理来自DBS-LFP信号，识别了与症状相关的特定频带活动。' : 
+                      'This study utilized the NNSR platform to process DBS-LFP signals, successfully identifying specific frequency band activities associated with symptoms.'}</p>
                     <p>${currentLanguage === 'chinese' ? 
-                      '引用:Wang, Z., Jiang, C., Guan, L. et al. Deep brain stimulation of habenula reduces depressive symptoms and modulates brain activities in treatment-resistant depression. Nat. Mental Health 2, 1045–1052 (2024). Guan L, Yu H, Chen Y, et al. Subthalamic γ Oscillation Underlying Rapid Eye Movement Sleep Abnormality in Parkinsonian Patients. Mov Disord. 2025;40(3):456-467.' : 
-                      'Citation: Wang, Z., Jiang, C., Guan, L. et al. Deep brain stimulation of habenula reduces depressive symptoms and modulates brain activities in treatment-resistant depression. Nat. Mental Health 2, 1045–1052 (2024). Guan L, Yu H, Chen Y, et al. Subthalamic γ Oscillation Underlying Rapid Eye Movement Sleep Abnormality in Parkinsonian Patients. Mov Disord. 2025;40(3):456-467.'}</p>
+                      '引用: Wang, Z., Jiang, C., Guan, L. et al. Deep brain stimulation of habenula reduces depressive symptoms and modulates brain activities in treatment-resistant depression. Nat. Mental Health 2, 1045–1052 (2024). Guan L, Yu H, Chen Y, et al. Subthalamic γ Oscillation Underlying Rapid Eye Movement Sleep Abnormality in Parkinsonian Patients. Mov Disord. 2025;40(3):456-467.' : 
+                      'Citation:Wang, Z., Jiang, C., Guan, L. et al. Deep brain stimulation of habenula reduces depressive symptoms and modulates brain activities in treatment-resistant depression. Nat. Mental Health 2, 1045–1052 (2024). Guan L, Yu H, Chen Y, et al. Subthalamic γ Oscillation Underlying Rapid Eye Movement Sleep Abnormality in Parkinsonian Patients. Mov Disord. 2025;40(3):456-467.'}</p>
                 `;
             } else if (articleId === 'bci-article') {
                 articleHTML = `
                     <h3>${currentLanguage === 'chinese' ? 'NNSR在实时脑机接口研究中的应用' : 'Application of NNSR in Real-time Brain-Computer Interface Research'}</h3>
                     <p>${currentLanguage === 'chinese' ? 
-                      'NNSR平台的低延迟信号处理能力使其成为开发实时脑机接口的理想工具。研究团队利用NNSR的自动信号清洗和特征提取功能，开发了一个能够在毫秒级延迟内解码运动意图的BCI系统。' : 
-                      'The low-latency signal processing capabilities of the NNSR platform make it an ideal tool for developing real-time brain-computer interfaces. The research team utilized NNSR\'s automatic signal cleaning and feature extraction functions to develop a BCI system capable of decoding motor intentions within millisecond-level delays.'}</p>
+                      'NNSR平台的低延迟信号处理能力使其成为开发实时脑机接口的理想工具。研究团队利用NNSR的在线分析和特征提取功能，开发了一个能够在毫秒级延迟解码运动意图的BCI系统。' : 
+                      'The low-latency signal processing capabilities of the NNSR platform make it an ideal tool for developing real-time brain-computer interfaces. The research team utilized NNSR\'s online a and feature extraction functions to develop a BCI system capable of decoding motor intentions within millisecond-level delays.'}</p>
                     <p>${currentLanguage === 'chinese' ? 
-                      '引用: Yue Chen, Guokun Zhang, Lingxiao Guan, Chen Gong, Bozhi Ma, Hongwei Hao, Luming Li, Progress in the development of a fully implantable brain–computer interface: the potential of sensing-enabled neurostimulators, National Science Review, Volume 9, Issue 10, October 2022, nwac099'' : 
-                      'Citation: Yue Chen, Guokun Zhang, Lingxiao Guan, Chen Gong, Bozhi Ma, Hongwei Hao, Luming Li, Progress in the development of a fully implantable brain–computer interface: the potential of sensing-enabled neurostimulators, National Science Review, Volume 9, Issue 10, October 2022, nwac099''}</p>
+                      '引用: Yue Chen, Guokun Zhang, Lingxiao Guan, Chen Gong, Bozhi Ma, Hongwei Hao, Luming Li, Progress in the development of a fully implantable brain–computer interface: the potential of sensing-enabled neurostimulators, National Science Review, Volume 9, Issue 10, October 2022, nwac099' : 
+                      'Citation: Wang et al. (2025). Yue Chen, Guokun Zhang, Lingxiao Guan, Chen Gong, Bozhi Ma, Hongwei Hao, Luming Li, Progress in the development of a fully implantable brain–computer interface: the potential of sensing-enabled neurostimulators, National Science Review, Volume 9, Issue 10, October 2022, nwac099'}</p>
                 `;
             }
             
