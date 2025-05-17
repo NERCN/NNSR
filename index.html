@@ -3,31 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="NNSR - Advanced Neural Signal Research Platform for deep brain stimulation and neuroscience research">
-    
     <title>NNSR - Neural Signal Research Platform</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" href="Pic/NNSR_LOGO.jpg" type="image/jpeg">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="NNSR - Neural Signal Research Platform">
-    <meta property="og:description" content="Advanced Deep Brain Signal Processing & Analysis Platform for neuroscience research">
-    <meta property="og:image" content="Pic/NNSR_LOGO.jpg">
-    <meta property="og:url" content="https://nercn-nnsr.org">
-    <meta property="og:type" content="website">
-    
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
     <!-- FontAwesome icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- AOS animation library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
     <script>
         // Set default language on page load
         document.addEventListener('DOMContentLoaded', function() {
@@ -962,22 +946,6 @@
             box-shadow: 0 6px 12px var(--shadow);
         }
         
-        /* Skip to main content link for accessibility */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--primary);
-            color: white;
-            padding: 8px;
-            z-index: 1001;
-            transition: top 0.3s;
-        }
-        
-        .skip-link:focus {
-            top: 0;
-        }
-        
         /* Responsive design */
         @media (max-width: 768px) {
             header {
@@ -1045,53 +1013,50 @@
     </style>
 </head>
 <body>
-    <!-- Skip to main content link for accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
     <!-- Language Selection Modal -->
-    <div id="languageModal" class="language-modal" role="dialog" aria-labelledby="language-selection" aria-modal="true">
+    <div id="languageModal" class="language-modal">
         <div class="language-modal-content">
-            <h3 id="language-selection">Please select your language / 请选择您的语言</h3>
-            <button class="language-option" onclick="selectLanguage('english')" aria-label="Select English language">English</button>
-            <button class="language-option" onclick="selectLanguage('chinese')" aria-label="Select Chinese language">中文</button>
+            <h3>Please select your language / 请选择您的语言</h3>
+            <button class="language-option" onclick="selectLanguage('english')">English</button>
+            <button class="language-option" onclick="selectLanguage('chinese')">中文</button>
         </div>
     </div>
     
     <!-- WeChat Modal -->
-    <div id="wechatModal" class="modal" role="dialog" aria-labelledby="wechat-contact" aria-hidden="true">
+    <div id="wechatModal" class="modal">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeWechatModal()" aria-label="Close WeChat contact modal">&times;</span>
-            <div class="modal-title chinese" id="wechat-contact-cn">WeChat 联系方式</div>
-            <div class="modal-title english" id="wechat-contact-en" style="display:none;">WeChat Contact</div>
+            <span class="close-modal" onclick="closeWechatModal()">&times;</span>
+            <div class="modal-title chinese">WeChat 联系方式</div>
+            <div class="modal-title english" style="display:none;">WeChat Contact</div>
             <h3 class="chinese">请扫描二维码或添加以下微信号</h3>
             <h3 class="english" style="display:none;">Please scan QR code or add WeChat ID</h3>
-            <div class="wechat-id" aria-label="WeChat ID">LingxiaoGuan5588</div>
+            <div class="wechat-id">LingxiaoGuan5588</div>
         </div>
     </div>
     
     <!-- Image Popup Modal -->
-    <div id="imagePopup" class="image-popup" role="dialog" aria-labelledby="image-detail" aria-hidden="true">
-        <span class="close-popup" onclick="closeImagePopup()" aria-label="Close image popup">&times;</span>
+    <div id="imagePopup" class="image-popup">
+        <span class="close-popup" onclick="closeImagePopup()">&times;</span>
         <div class="popup-content">
             <img id="popupImage" src="" alt="Detail Image">
         </div>
     </div>
     
     <!-- Article Popup Modal -->
-    <div id="articlePopup" class="article-popup" role="dialog" aria-labelledby="article-detail" aria-hidden="true">
-        <span class="close-popup" onclick="closeArticlePopup()" aria-label="Close article popup">&times;</span>
+    <div id="articlePopup" class="article-popup">
+        <span class="close-popup" onclick="closeArticlePopup()">&times;</span>
         <div class="article-content" id="articleContent">
             <!-- Article content will be inserted here -->
         </div>
     </div>
     
     <!-- Navigation bar -->
-    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+    <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
                 <!-- Added both logos to the navbar -->
-                <img src="Pic/NERCN_LOGO.png" alt="NERCN Lab Logo" class="logo-img">
-                <img src="Pic/NNSR_LOGO.jpg" alt="NNSR Platform Logo" class="logo-img">
+                <img src="Pic/NERCN_LOGO.png" alt="Lab Logo" class="logo-img">
+                <img src="Pic/NNSR_LOGO.jpg" alt="NNSR Logo" class="logo-img">
                 <div class="nav-logo-text">
                     <span class="chinese">NERCN NeuroSignal Research (NNSR)</span>
                     <span class="english" style="display:none;">NERCN NeuroSignal Research (NNSR)</span>
@@ -1109,13 +1074,13 @@
                 <a href="#contact" class="chinese">联系</a>
                 <a href="#contact" class="english" style="display:none;">Contact</a>
             </div>
-            <button class="language-switch" onclick="toggleLanguage()" aria-label="Toggle language">
+            <button class="language-switch" onclick="toggleLanguage()">
                 <span class="chinese">English</span>
                 <span class="english" style="display:none;">中文</span>
             </button>
-            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle mobile menu" aria-expanded="false">
+            <div class="mobile-toggle" onclick="toggleMobileMenu()">
                 <i class="fa-solid fa-bars"></i>
-            </button>
+            </div>
         </div>
     </nav>
     
@@ -1133,204 +1098,202 @@
         </div>
     </header>
     
-    <main id="main-content">
-        <div class="container" data-aos="fade-up">
-            <section>
-                <p class="intro-text chinese">NNSR专为处理和分析神经信号而设计，提供全面的工具集，助力深部脑刺激及神经科学研究突破。</p>
-                <p class="intro-text english" style="display:none;">NNSR is designed for processing and analyzing neural signals, offering comprehensive tools for deep brain stimulation and breakthroughs in neuroscience research.</p>
-            </section>
+    <div class="container" data-aos="fade-up">
+        <section>
+            <p class="intro-text chinese">NNSR专为处理和分析神经信号而设计，提供全面的工具集，助力深部脑刺激及神经科学研究突破。</p>
+            <p class="intro-text english" style="display:none;">NNSR is designed for processing and analyzing neural signals, offering comprehensive tools for deep brain stimulation and breakthroughs in neuroscience research.</p>
+        </section>
+        
+        <section id="features">
+            <h2 class="chinese" data-aos="fade-up">核心功能</h2>
+            <h2 class="english" style="display:none;" data-aos="fade-up">Key Features</h2>
             
-            <section id="features" aria-labelledby="features-heading">
-                <h2 id="features-heading" class="chinese" data-aos="fade-up">核心功能</h2>
-                <h2 class="english" style="display:none;" data-aos="fade-up">Key Features</h2>
-                
-                <!-- Optimized feature layout -->
-                <div class="feature-container">
-                    <div class="feature" data-aos="fade-up" data-aos-delay="100">
-                        <div class="feature-icon" aria-hidden="true"><i class="fa-solid fa-brain"></i></div>
-                        <div class="feature-content">
-                            <h3 class="chinese">智能信号处理</h3>
-                            <h3 class="english" style="display:none;">Intelligent Signal Processing</h3>
-                            <p class="chinese">基于神经网络的伪迹检测系统，确保信号质量与研究可重复性。通过深度学习算法，自动识别和处理异常信号，提高数据可靠性。</p>
-                            <p class="english" style="display:none;">Neural network-based artifact detection system, ensuring signal quality and research reproducibility. Automatically identifies and processes abnormal signals through deep learning algorithms, improving data reliability.</p>
-                        </div>
-                    </div>
-                    <div class="feature" data-aos="fade-up" data-aos-delay="200">
-                        <div class="feature-icon" aria-hidden="true"><i class="fa-solid fa-chart-line"></i></div>
-                        <div class="feature-content">
-                            <h3 class="chinese">高级可视化</h3>
-                            <h3 class="english" style="display:none;">Advanced Visualization</h3>
-                            <p class="chinese">直观呈现复杂神经动态模式，支持时间、频率和时频分析。多维度可视化工具助您深入解析神经信号特征。</p>
-                            <p class="english" style="display:none;">Intuitive representation of complex neural dynamics, supporting time, frequency and time-frequency analyses. Multi-dimensional visualization tools help you deeply analyze neural signal characteristics.</p>
-                        </div>
-                    </div>
-                    <div class="feature" data-aos="fade-up" data-aos-delay="300">
-                        <div class="feature-icon" aria-hidden="true"><i class="fa-solid fa-bolt"></i></div>
-                        <div class="feature-content">
-                            <h3 class="chinese">实时处理</h3>
-                            <h3 class="english" style="display:none;">Real-time Processing</h3>
-                            <p class="chinese">高性能实时信号处理，支持在线分析与特征提取，延迟最小化，满足即时监测需求。</p>
-                            <p class="english" style="display:none;">High-performance real-time signal processing, supporting online analysis and feature extraction with minimal latency, meeting immediate monitoring requirements.</p>
-                        </div>
-                    </div>
-                    <div class="feature" data-aos="fade-up" data-aos-delay="400">
-                        <div class="feature-icon" aria-hidden="true"><i class="fa-solid fa-code-branch"></i></div>
-                        <div class="feature-content">
-                            <h3 class="chinese">闭环研究平台</h3>
-                            <h3 class="english" style="display:none;">Closed-Loop Platform</h3>
-                            <p class="chinese">支持复杂刺激-响应研究，实现交互式神经调节与定制控制机制。完美集成硬件与软件系统，为神经调控研究提供一站式解决方案。</p>
-                            <p class="english" style="display:none;">Supporting complex stimulation-response research with interactive neuromodulation and customizable control mechanisms. Seamlessly integrates hardware and software systems, providing an all-in-one solution for neuromodulation research.</p>
-                        </div>
+            <!-- Optimized feature layout -->
+            <div class="feature-container">
+                <div class="feature" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon"><i class="fa-solid fa-brain"></i></div>
+                    <div class="feature-content">
+                        <h3 class="chinese">智能信号处理</h3>
+                        <h3 class="english" style="display:none;">Intelligent Signal Processing</h3>
+                        <p class="chinese">基于神经网络的伪迹检测系统，确保信号质量与研究可重复性。通过深度学习算法，自动识别和处理异常信号，提高数据可靠性。</p>
+                        <p class="english" style="display:none;">Neural network-based artifact detection system, ensuring signal quality and research reproducibility. Automatically identifies and processes abnormal signals through deep learning algorithms, improving data reliability.</p>
                     </div>
                 </div>
-            </section>
-            
-            <section id="demo" class="demo-section" aria-labelledby="demo-heading">
-                <h2 id="demo-heading" class="chinese" data-aos="fade-up">软件演示</h2>
-                <h2 class="english" style="display:none;" data-aos="fade-up">Software Demo</h2>
-                
-                <div class="gif-container" data-aos="fade-up">
-                    <video id="demoVideo" autoplay loop muted playsinline aria-label="NNSR demo video showing signal processing capabilities">
-                        <source src="Pic/online-analysis.mp4" type="video/mp4">
-                        <!-- Fallback to image if video isn't supported -->
-                        <img src="Pic/0I8A5186.jpg" alt="NNSR interface demonstration" />
-                    </video>
-                    <p class="chinese">NNSR界面展示自动信号处理和特征提取功能</p>
-                    <p class="english" style="display:none;">NNSR interface demonstrating automated signal processing and feature extraction</p>
-                </div>
-                
-                <h2 class="chinese" data-aos="fade-up">界面示例</h2>
-                <h2 class="english" style="display:none;" data-aos="fade-up">Interface Examples</h2>
-                
-                <!-- Updated image gallery with captions and video triggers -->
-                <div class="image-gallery" data-aos="fade-up">
-                    <div class="gallery-item" onclick="playVideo('online-analysis.mp4')" tabindex="0" role="button" aria-label="Play online analysis video">
-                        <img src="Pic/FIG3.jpg" alt="Online Analysis Interface" loading="lazy" />
-                        <div class="gallery-caption chinese">在线分析</div>
-                        <div class="gallery-caption english" style="display:none;">Online Analysis</div>
-                    </div>
-                    <div class="gallery-item" onclick="playVideo('closed-loop.mp4')" tabindex="0" role="button" aria-label="Play closed-loop research video">
-                        <img src="Pic/FIG2.jpg" alt="Closed-Loop Research Interface" loading="lazy" />
-                        <div class="gallery-caption chinese">闭环研究</div>
-                        <div class="gallery-caption english" style="display:none;">Closed-Loop Research</div>
-                    </div>
-                    <div class="gallery-item" onclick="playVideo('automated-processing.mp4')" tabindex="0" role="button" aria-label="Play automated processing video">
-                        <img src="Pic/FIG1.jpg" alt="Automated Processing Interface" loading="lazy" />
-                        <div class="gallery-caption chinese">自动处理</div>
-                        <div class="gallery-caption english" style="display:none;">Automated Processing</div>
-                    </div>
-                    <div class="gallery-item" onclick="playVideo('manual-processing.mp4')" tabindex="0" role="button" aria-label="Play manual processing video">
-                        <img src="Pic/FIG4.jpg" alt="Manual Processing Interface" loading="lazy" />
-                        <div class="gallery-caption chinese">手动处理</div>
-                        <div class="gallery-caption english" style="display:none;">Manual Processing</div>
+                <div class="feature" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <div class="feature-content">
+                        <h3 class="chinese">高级可视化</h3>
+                        <h3 class="english" style="display:none;">Advanced Visualization</h3>
+                        <p class="chinese">直观呈现复杂神经动态模式，支持时间、频率和时频分析。多维度可视化工具助您深入解析神经信号特征。</p>
+                        <p class="english" style="display:none;">Intuitive representation of complex neural dynamics, supporting time, frequency and time-frequency analyses. Multi-dimensional visualization tools help you deeply analyze neural signal characteristics.</p>
                     </div>
                 </div>
-            </section>
-            
-            <section id="resources" aria-labelledby="resources-heading">
-                <h2 id="resources-heading" class="chinese" data-aos="fade-up">资源下载</h2>
-                <h2 class="english" style="display:none;" data-aos="fade-up">Resources</h2>
-                
-                <div class="card-container">
-                    <div class="card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="card-icon" aria-hidden="true"><i class="fa-solid fa-download"></i></div>
-                        <h3 class="chinese">下载NNSR</h3>
-                        <h3 class="english" style="display:none;">Download NNSR</h3>
-                        <p class="chinese">获取独立Windows应用程序，无需额外软件。支持信号处理与分析的全套功能。</p>
-                        <p class="english" style="display:none;">Get the standalone Windows application, no additional software required. Features full signal processing and analysis capabilities.</p>
-                        <!-- Updated with actual link placeholder -->
-                        <a href="https://example.com/download/nnsr-v1.0" class="btn btn-red chinese" aria-label="下载NNSR v1.0">下载NNSR v1.0</a>
-                        <a href="https://example.com/download/nnsr-v1.0" class="btn btn-red english" style="display:none;" aria-label="Download NNSR v1.0">Download NNSR v1.0</a>
-                    </div>
-                    <div class="card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card-icon" aria-hidden="true"><i class="fa-brands fa-github"></i></div>
-                        <h3 class="chinese">源代码</h3>
-                        <h3 class="english" style="display:none;">Source Code</h3>
-                        <p class="chinese">访问MATLAB源代码，定制并集成到研究工作流程中。开源协作，欢迎贡献。</p>
-                        <p class="english" style="display:none;">Access MATLAB source code for customization and workflow integration. Open-source collaboration welcomed.</p>
-                        <!-- Updated with GitHub link placeholder -->
-                        <a href="https://github.com/nercn/nnsr" class="btn chinese" aria-label="访问GitHub仓库">GitHub仓库</a>
-                        <a href="https://github.com/nercn/nnsr" class="btn english" style="display:none;" aria-label="Access GitHub repository">GitHub Repo</a>
-                    </div>
-                    <div class="card" data-aos="fade-up" data-aos-delay="300">
-                        <div class="card-icon" aria-hidden="true"><i class="fa-solid fa-book"></i></div>
-                        <h3 class="chinese">文档</h3>
-                        <h3 class="english" style="display:none;">Documentation</h3>
-                        <p class="chinese">全面的用户指南和技术文档。包含详细API参考和工作流程示例。</p>
-                        <p class="english" style="display:none;">Comprehensive user guide and technical documentation. Includes detailed API references and workflow examples.</p>
-                        <!-- Updated with documentation link placeholder -->
-                        <a href="https://docs.nercn-nnsr.org" class="btn btn-red chinese" aria-label="阅读文档">阅读文档</a>
-                        <a href="https://docs.nercn-nnsr.org" class="btn btn-red english" style="display:none;" aria-label="Read documentation">Read Docs</a>
-                    </div>
-                    <div class="card" data-aos="fade-up" data-aos-delay="400">
-                        <div class="card-icon" aria-hidden="true"><i class="fa-solid fa-graduation-cap"></i></div>
-                        <h3 class="chinese">教程</h3>
-                        <h3 class="english" style="display:none;">Tutorials</h3>
-                        <p class="chinese">帮助上手的分步教程。从基础到高级应用，循序渐进指导您掌握NNSR平台。</p>
-                        <p class="english" style="display:none;">Step-by-step tutorials to help you get started. From basics to advanced applications, progressively guide you to master the NNSR platform.</p>
-                        <!-- Updated with tutorials link placeholder -->
-                        <a href="https://learn.nercn-nnsr.org/tutorials" class="btn chinese" aria-label="查看教程">查看教程</a>
-                        <a href="https://learn.nercn-nnsr.org/tutorials" class="btn english" style="display:none;" aria-label="View tutorials">View Tutorials</a>
+                <div class="feature" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <div class="feature-content">
+                        <h3 class="chinese">实时处理</h3>
+                        <h3 class="english" style="display:none;">Real-time Processing</h3>
+                        <p class="chinese">高性能实时信号处理，支持在线分析与特征提取，延迟最小化，满足即时监测需求。</p>
+                        <p class="english" style="display:none;">High-performance real-time signal processing, supporting online analysis and feature extraction with minimal latency, meeting immediate monitoring requirements.</p>
                     </div>
                 </div>
-            </section>
+                <div class="feature" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon"><i class="fa-solid fa-code-branch"></i></div>
+                    <div class="feature-content">
+                        <h3 class="chinese">闭环研究平台</h3>
+                        <h3 class="english" style="display:none;">Closed-Loop Platform</h3>
+                        <p class="chinese">支持复杂刺激-响应研究，实现交互式神经调节与定制控制机制。完美集成硬件与软件系统，为神经调控研究提供一站式解决方案。</p>
+                        <p class="english" style="display:none;">Supporting complex stimulation-response research with interactive neuromodulation and customizable control mechanisms. Seamlessly integrates hardware and software systems, providing an all-in-one solution for neuromodulation research.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="demo" class="demo-section">
+            <h2 class="chinese" data-aos="fade-up">软件演示</h2>
+            <h2 class="english" style="display:none;" data-aos="fade-up">Software Demo</h2>
             
-            <section id="applications" aria-labelledby="applications-heading">
-                <h2 id="applications-heading" class="chinese" data-aos="fade-up">应用案例</h2>
-                <h2 class="english" style="display:none;" data-aos="fade-up">Applications</h2>
-                
-                <ul class="applications-list" data-aos="fade-up">
-                    <!-- Added citation link -->
-                    <li class="chinese">处理DBS-LFP信号
-                        <a href="#" class="citation-link" onclick="showArticle('dbs-article')" aria-label="查看DBS-LFP信号处理相关文献">参考文献 <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
-                    </li>
-                    <li class="english" style="display:none;">Processing DBS-LFP signals
-                        <a href="#" class="citation-link" onclick="showArticle('dbs-article')" aria-label="View citation for DBS-LFP signal processing">Citation <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
-                    </li>
-                    
-                    <!-- Added popup image link -->
-                    <li class="chinese">监测药物波动期间的神经活动变化
-                        <a href="#" class="citation-link" onclick="showImage('Pic/medication-fluctuation.jpg')" aria-label="查看药物波动期间的神经活动变化图表">查看图表 <i class="fas fa-image" aria-hidden="true"></i></a>
-                    </li>
-                    <li class="english" style="display:none;">Monitoring neural activity during medication fluctuations
-                        <a href="#" class="citation-link" onclick="showImage('Pic/medication-fluctuation.jpg')" aria-label="View chart of neural activity during medication fluctuations">View Chart <i class="fas fa-image" aria-hidden="true"></i></a>
-                    </li>
-                    
-                    <li class="chinese">实时神经反馈用于闭环DBS研究</li>
-                    <li class="english" style="display:none;">Real-time neural feedback for closed-loop DBS research</li>
-                    
-                    <li class="chinese">研究神经精神疾病的神经振荡模式</li>
-                    <li class="english" style="display:none;">Studying neural oscillation patterns in neuropsychiatric disorders</li>
-                    
-                    <li class="chinese">支持个性化神经调节治疗开发</li>
-                    <li class="english" style="display:none;">Supporting personalized neuromodulation therapy development</li>
-                    
-                    <!-- Added new item with article link -->
-                    <li class="chinese">支持实时脑机接口研究
-                        <a href="#" class="citation-link" onclick="showArticle('bci-article')" aria-label="查看脑机接口相关研究">相关研究 <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
-                    </li>
-                    <li class="english" style="display:none;">Supporting real-time Brain-Computer Interface research
-                        <a href="#" class="citation-link" onclick="showArticle('bci-article')" aria-label="View related BCI research">Related Research <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
-                    </li>
-                </ul>
-            </section>
+            <div class="gif-container" data-aos="fade-up">
+                <video id="demoVideo" autoplay loop muted playsinline>
+                    <source src="Pic/0I8A5190.mp4" type="video/mp4">
+                    <!-- Fallback to image if video isn't supported -->
+                    <img src="Pic/0I8A5186.jpg" alt="NNSR" />
+                </video>
+                <p class="chinese">NNSR界面展示自动信号处理和特征提取功能</p>
+                <p class="english" style="display:none;">NNSR interface demonstrating automated signal processing and feature extraction</p>
+            </div>
             
-            <section id="contact" class="contact-section" aria-labelledby="contact-heading">
-                <h2 id="contact-heading" class="chinese" data-aos="fade-up">联系我们</h2>
-                <h2 class="english" style="display:none;" data-aos="fade-up">Contact Us</h2>
+            <h2 class="chinese" data-aos="fade-up">界面示例</h2>
+            <h2 class="english" style="display:none;" data-aos="fade-up">Interface Examples</h2>
+            
+            <!-- Updated image gallery with captions and video triggers -->
+            <div class="image-gallery" data-aos="fade-up">
+                <div class="gallery-item" onclick="playVideo('online-analysis.mp4')">
+                    <img src="Pic/FIG3.jpg" alt="Online Analysis" />
+                    <div class="gallery-caption chinese">在线分析</div>
+                    <div class="gallery-caption english" style="display:none;">Online Analysis</div>
+                </div>
+                <div class="gallery-item" onclick="playVideo('closed-loop.mp4')">
+                    <img src="Pic/FIG2.jpg" alt="Closed-Loop Research" />
+                    <div class="gallery-caption chinese">闭环研究</div>
+                    <div class="gallery-caption english" style="display:none;">Closed-Loop Research</div>
+                </div>
+                <div class="gallery-item" onclick="playVideo('automated-processing.mp4')">
+                    <img src="Pic/FIG1.jpg" alt="Automated Processing" />
+                    <div class="gallery-caption chinese">自动处理</div>
+                    <div class="gallery-caption english" style="display:none;">Automated Processing</div>
+                </div>
+                <div class="gallery-item" onclick="playVideo('manual-processing.mp4')">
+                    <img src="Pic/FIG4.jpg" alt="Manual Processing" />
+                    <div class="gallery-caption chinese">手动处理</div>
+                    <div class="gallery-caption english" style="display:none;">Manual Processing</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="resources">
+            <h2 class="chinese" data-aos="fade-up">资源下载</h2>
+            <h2 class="english" style="display:none;" data-aos="fade-up">Resources</h2>
+            
+            <div class="card-container">
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-icon"><i class="fa-solid fa-download"></i></div>
+                    <h3 class="chinese">下载NNSR</h3>
+                    <h3 class="english" style="display:none;">Download NNSR</h3>
+                    <p class="chinese">获取独立Windows应用程序，无需额外软件。支持信号处理与分析的全套功能。</p>
+                    <p class="english" style="display:none;">Get the standalone Windows application, no additional software required. Features full signal processing and analysis capabilities.</p>
+                    <!-- Updated with actual link placeholder -->
+                    <a href="https://example.com/download/nnsr-v1.0" class="btn btn-red chinese">下载NNSR v1.0</a>
+                    <a href="https://example.com/download/nnsr-v1.0" class="btn btn-red english" style="display:none;">Download NNSR v1.0</a>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-icon"><i class="fa-brands fa-github"></i></div>
+                    <h3 class="chinese">源代码</h3>
+                    <h3 class="english" style="display:none;">Source Code</h3>
+                    <p class="chinese">访问MATLAB源代码，定制并集成到研究工作流程中。开源协作，欢迎贡献。</p>
+                    <p class="english" style="display:none;">Access MATLAB source code for customization and workflow integration. Open-source collaboration welcomed.</p>
+                    <!-- Updated with GitHub link placeholder -->
+                    <a href="https://github.com/nercn/nnsr" class="btn chinese">GitHub仓库</a>
+                    <a href="https://github.com/nercn/nnsr" class="btn english" style="display:none;">GitHub Repo</a>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-icon"><i class="fa-solid fa-book"></i></div>
+                    <h3 class="chinese">文档</h3>
+                    <h3 class="english" style="display:none;">Documentation</h3>
+                    <p class="chinese">全面的用户指南和技术文档。包含详细API参考和工作流程示例。</p>
+                    <p class="english" style="display:none;">Comprehensive user guide and technical documentation. Includes detailed API references and workflow examples.</p>
+                    <!-- Updated with documentation link placeholder -->
+                    <a href="https://docs.nercn-nnsr.org" class="btn btn-red chinese">阅读文档</a>
+                    <a href="https://docs.nercn-nnsr.org" class="btn btn-red english" style="display:none;">Read Docs</a>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h3 class="chinese">教程</h3>
+                    <h3 class="english" style="display:none;">Tutorials</h3>
+                    <p class="chinese">帮助上手的分步教程。从基础到高级应用，循序渐进指导您掌握NNSR平台。</p>
+                    <p class="english" style="display:none;">Step-by-step tutorials to help you get started. From basics to advanced applications, progressively guide you to master the NNSR platform.</p>
+                    <!-- Updated with tutorials link placeholder -->
+                    <a href="https://learn.nercn-nnsr.org/tutorials" class="btn chinese">查看教程</a>
+                    <a href="https://learn.nercn-nnsr.org/tutorials" class="btn english" style="display:none;">View Tutorials</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="applications">
+            <h2 class="chinese" data-aos="fade-up">应用案例</h2>
+            <h2 class="english" style="display:none;" data-aos="fade-up">Applications</h2>
+            
+            <ul class="applications-list" data-aos="fade-up">
+                <!-- Added citation link -->
+                <li class="chinese">处理帕金森病患者的DBS-LFP信号
+                    <a href="#" class="citation-link" onclick="showArticle('dbs-article')">参考文献 <i class="fas fa-external-link-alt"></i></a>
+                </li>
+                <li class="english" style="display:none;">Processing DBS-LFP signals in Parkinson's patients
+                    <a href="#" class="citation-link" onclick="showArticle('dbs-article')">Citation <i class="fas fa-external-link-alt"></i></a>
+                </li>
                 
-                <p class="chinese" data-aos="fade-up">如需咨询、合作或技术支持，请联系：</p>
-                <p class="english" style="display:none;" data-aos="fade-up">For inquiries, collaboration or technical support, please contact:</p>
+                <!-- Added popup image link -->
+                <li class="chinese">监测药物波动期间的神经活动变化
+                    <a href="#" class="citation-link" onclick="showImage('Pic/medication-fluctuation.jpg')">查看图表 <i class="fas fa-image"></i></a>
+                </li>
+                <li class="english" style="display:none;">Monitoring neural activity during medication fluctuations
+                    <a href="#" class="citation-link" onclick="showImage('Pic/medication-fluctuation.jpg')">View Chart <i class="fas fa-image"></i></a>
+                </li>
                 
-                <!-- Added email link -->
-                <p><a href="mailto:guanlx18@tsinghua.org.cn" aria-label="Send email to guanlx18@tsinghua.org.cn">guanlx18@tsinghua.org.cn</a></p>
+                <li class="chinese">实时神经反馈用于闭环DBS研究</li>
+                <li class="english" style="display:none;">Real-time neural feedback for closed-loop DBS research</li>
                 
-                <!-- Added additional contact links -->
-                <p class="chinese">访问我们的 <a href="https://nercn.tsinghua.edu.cn" target="_blank" rel="noopener noreferrer" aria-label="访问实验室网站">实验室网站</a> 了解更多研究内容</p>
-                <p class="english" style="display:none;">Visit our <a href="https://nercn.tsinghua.edu.cn" target="_blank" rel="noopener noreferrer" aria-label="Visit lab website">lab website</a> to learn more about our research</p>
-            </section>
-        </div>
-    </main>
+                <li class="chinese">研究神经精神疾病的神经振荡模式</li>
+                <li class="english" style="display:none;">Studying neural oscillation patterns in neuropsychiatric disorders</li>
+                
+                <li class="chinese">支持个性化神经调节治疗开发</li>
+                <li class="english" style="display:none;">Supporting personalized neuromodulation therapy development</li>
+                
+                <!-- Added new item with article link -->
+                <li class="chinese">支持实时脑机接口研究
+                    <a href="#" class="citation-link" onclick="showArticle('bci-article')">相关研究 <i class="fas fa-external-link-alt"></i></a>
+                </li>
+                <li class="english" style="display:none;">Supporting real-time Brain-Computer Interface research
+                    <a href="#" class="citation-link" onclick="showArticle('bci-article')">Related Research <i class="fas fa-external-link-alt"></i></a>
+                </li>
+            </ul>
+        </section>
+        
+        <section id="contact" class="contact-section">
+            <h2 class="chinese" data-aos="fade-up">联系我们</h2>
+            <h2 class="english" style="display:none;" data-aos="fade-up">Contact Us</h2>
+            
+            <p class="chinese" data-aos="fade-up">如需咨询、合作或技术支持，请联系：</p>
+            <p class="english" style="display:none;" data-aos="fade-up">For inquiries, collaboration or technical support, please contact:</p>
+            
+            <!-- Added email link -->
+            <p><a href="mailto:guanlx18@tsinghua.org.cn">guanlx18@tsinghua.org.cn</a></p>
+            
+            <!-- Added additional contact links -->
+            <p class="chinese">访问我们的 <a href="https://nercn.tsinghua.edu.cn" target="_blank">实验室网站</a> 了解更多研究内容</p>
+            <p class="english" style="display:none;">Visit our <a href="https://nercn.tsinghua.edu.cn" target="_blank">lab website</a> to learn more about our research</p>
+        </section>
+    </div>
     
     <footer>
         <div class="footer-content">
@@ -1344,48 +1307,48 @@
                 <h3 class="chinese">快速链接</h3>
                 <h3 class="english" style="display:none;">Quick Links</h3>
                 <ul>
-                    <li><a href="#features" class="chinese"><i class="fa-solid fa-angle-right" aria-hidden="true"></i>核心功能</a></li>
-                    <li><a href="#features" class="english" style="display:none;"><i class="fa-solid fa-angle-right" aria-hidden="true"></i>Features</a></li>
-                    <li><a href="#demo" class="chinese"><i class="fa-solid fa-angle-right" aria-hidden="true"></i>软件演示</a></li>
-                    <li><a href="#demo" class="english" style="display:none;"><i class="fa-solid fa-angle-right" aria-hidden="true"></i>Demo</a></li>
-                    <li><a href="#resources" class="chinese"><i class="fa-solid fa-angle-right" aria-hidden="true"></i>资源下载</a></li>
-                    <li><a href="#resources" class="english" style="display:none;"><i class="fa-solid fa-angle-right" aria-hidden="true"></i>Resources</a></li>
-                    <li><a href="#applications" class="chinese"><i class="fa-solid fa-angle-right" aria-hidden="true"></i>应用案例</a></li>
-                    <li><a href="#applications" class="english" style="display:none;"><i class="fa-solid fa-angle-right" aria-hidden="true"></i>Applications</a></li>
+                    <li><a href="#features" class="chinese"><i class="fa-solid fa-angle-right"></i>核心功能</a></li>
+                    <li><a href="#features" class="english" style="display:none;"><i class="fa-solid fa-angle-right"></i>Features</a></li>
+                    <li><a href="#demo" class="chinese"><i class="fa-solid fa-angle-right"></i>软件演示</a></li>
+                    <li><a href="#demo" class="english" style="display:none;"><i class="fa-solid fa-angle-right"></i>Demo</a></li>
+                    <li><a href="#resources" class="chinese"><i class="fa-solid fa-angle-right"></i>资源下载</a></li>
+                    <li><a href="#resources" class="english" style="display:none;"><i class="fa-solid fa-angle-right"></i>Resources</a></li>
+                    <li><a href="#applications" class="chinese"><i class="fa-solid fa-angle-right"></i>应用案例</a></li>
+                    <li><a href="#applications" class="english" style="display:none;"><i class="fa-solid fa-angle-right"></i>Applications</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h3 class="chinese">联系方式</h3>
                 <h3 class="english" style="display:none;">Contact Us</h3>
                 <div class="social-icons">
-                    <a href="#" id="wechatLink" aria-label="Contact on WeChat">
-                        <i class="fa-brands fa-weixin" aria-hidden="true"></i>
+                    <a href="#" id="wechatLink">
+                        <i class="fa-brands fa-weixin"></i>
                         <span class="chinese">微信</span>
                         <span class="english" style="display:none;">WeChat</span>
                     </a>
-                    <a href="mailto:guanlx18@tsinghua.org.cn" aria-label="Send email">
-                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                    <a href="mailto:guanlx18@tsinghua.org.cn">
+                        <i class="fa-solid fa-envelope"></i>
                         <span class="chinese">邮箱</span>
                         <span class="english" style="display:none;">Email</span>
                     </a>
-                    <a href="https://space.bilibili.com/123456789" target="_blank" rel="noopener noreferrer" aria-label="Visit Bilibili channel">
-                        <i class="fa-brands fa-bilibili" aria-hidden="true"></i>
+                    <a href="https://space.bilibili.com/123456789" target="_blank">
+                        <i class="fa-brands fa-bilibili"></i>
                         <span class="chinese">哔哩哔哩</span>
                         <span class="english" style="display:none;">Bilibili</span>
                     </a>
                     <!-- Social media icons with updated links -->
-                    <a href="https://twitter.com/NERCN_NNSR" target="_blank" rel="noopener noreferrer" aria-label="Visit Twitter profile">
-                        <i class="fa-brands fa-twitter" aria-hidden="true"></i>
+                    <a href="https://twitter.com/NERCN_NNSR" target="_blank">
+                        <i class="fa-brands fa-twitter"></i>
                         <span class="chinese">推特</span>
                         <span class="english" style="display:none;">Twitter</span>
                     </a>
-                    <a href="https://www.youtube.com/channel/NERCN_NNSR" target="_blank" rel="noopener noreferrer" aria-label="Visit YouTube channel">
-                        <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                    <a href="https://www.youtube.com/channel/NERCN_NNSR" target="_blank">
+                        <i class="fa-brands fa-youtube"></i>
                         <span class="chinese">油管</span>
                         <span class="english" style="display:none;">YouTube</span>
                     </a>
-                    <a href="https://github.com/nercn/nnsr" target="_blank" rel="noopener noreferrer" aria-label="Visit GitHub repository">
-                        <i class="fa-brands fa-github" aria-hidden="true"></i>
+                    <a href="https://github.com/nercn/nnsr" target="_blank">
+                        <i class="fa-brands fa-github"></i>
                         <span class="chinese">GitHub</span>
                         <span class="english" style="display:none;">GitHub</span>
                     </a>
@@ -1399,42 +1362,14 @@
     </footer>
     
     <!-- JavaScript libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     
     <script>
         // Initialize AOS animation library
-        document.addEventListener('DOMContentLoaded', function() {
-            AOS.init({
-                duration: 800,
-                easing: 'ease-out',
-                once: true,
-                disable: 'mobile' // Disable animations on mobile for better performance
-            });
-            
-            // Make sure the language selection modal is visible
-            document.getElementById('languageModal').style.display = 'block';
-            
-            // Default to English on initial load
-            setLanguage('english');
-            
-            // Add event listener to WeChat link
-            document.getElementById('wechatLink').addEventListener('click', function(e) {
-                e.preventDefault();
-                openWechatModal();
-            });
-            
-            // Add keyboard navigation to gallery items
-            document.querySelectorAll('.gallery-item').forEach(item => {
-                item.addEventListener('keydown', function(e) {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        this.click();
-                    }
-                });
-            });
-            
-            // Setup smooth scrolling for anchor links
-            setupSmoothScroll();
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: true
         });
         
         // Current language state
@@ -1467,6 +1402,8 @@
                 currentLanguage = 'chinese';
                 document.documentElement.lang = 'zh-CN';
             }
+            
+            console.log('Language set to:', language);
         }
         
         // Toggle language function
@@ -1481,32 +1418,18 @@
         // Mobile menu toggle
         function toggleMobileMenu() {
             const navLinks = document.querySelector('.nav-links');
-            const mobileToggle = document.querySelector('.mobile-toggle');
-            const isExpanded = navLinks.classList.contains('active');
-            
             navLinks.classList.toggle('active');
-            mobileToggle.setAttribute('aria-expanded', !isExpanded);
         }
         
         // WeChat modal functions
         function openWechatModal() {
             const modal = document.getElementById('wechatModal');
             modal.style.display = 'block';
-            modal.setAttribute('aria-hidden', 'false');
-            
-            // Set focus to close button
-            setTimeout(() => {
-                modal.querySelector('.close-modal').focus();
-            }, 100);
         }
         
         function closeWechatModal() {
             const modal = document.getElementById('wechatModal');
             modal.style.display = 'none';
-            modal.setAttribute('aria-hidden', 'true');
-            
-            // Return focus to the element that opened the modal
-            document.getElementById('wechatLink').focus();
         }
         
         // Image popup functions
@@ -1515,18 +1438,11 @@
             const img = document.getElementById('popupImage');
             img.src = imageSrc;
             popup.classList.add('active');
-            popup.setAttribute('aria-hidden', 'false');
-            
-            // Set focus to close button
-            setTimeout(() => {
-                popup.querySelector('.close-popup').focus();
-            }, 100);
         }
         
         function closeImagePopup() {
             const popup = document.getElementById('imagePopup');
             popup.classList.remove('active');
-            popup.setAttribute('aria-hidden', 'true');
         }
         
         // Article popup functions
@@ -1539,43 +1455,36 @@
             
             if (articleId === 'dbs-article') {
                 articleHTML = `
-                    <h3 id="article-detail">${currentLanguage === 'chinese' ? 'DBS-LFP信号处理的应用' : 'Application of DBS-LFP Signal Processing'}</h3>
+                    <h3>${currentLanguage === 'chinese' ? 'DBS-LFP信号处理在帕金森病研究中的应用' : 'Application of DBS-LFP Signal Processing in Parkinson\'s Disease Research'}</h3>
                     <p>${currentLanguage === 'chinese' ? 
-                      '利用NNSR平台可以处理来自药物难治性抑郁患者/帕金森病患者的DBS-LFP信号，并成功识别了特定频带活动，促进生物标志物的研究。' : 
-                      'The NNSR platform can process DBS-LFP signals from patients with drug-resistant depression/Parkinson's disease and successfully identify specific frequency band activities, promoting research on biomarkers.'}</p>
+                      '研究利用NNSR平台处理来自帕金森病患者的DBS-LFP信号，成功识别了与运动症状相关的特定频带活动。' : 
+                      'This study utilized the NNSR platform to process DBS-LFP signals from Parkinson\'s disease patients, successfully identifying specific frequency band activities associated with motor symptoms.'}</p>
                     <p>${currentLanguage === 'chinese' ? 
-                      '引用: Wang, Z., Jiang, C., Guan, L. et al. Deep brain stimulation of habenula reduces depressive symptoms and modulates brain activities in treatment-resistant depression. Nat. Mental Health 2, 1045–1052 (2024).；Guan L, Yu H, Chen Y, et al. Subthalamic γ Oscillation Underlying Rapid Eye Movement Sleep Abnormality in Parkinsonian Patients. Mov Disord. 2025;40(3):456-467.' : 
-                      'Citation: Wang, Z., Jiang, C., Guan, L. et al. Deep brain stimulation of habenula reduces depressive symptoms and modulates brain activities in treatment-resistant depression. Nat. Mental Health 2, 1045–1052 (2024).；Guan L, Yu H, Chen Y, et al. Subthalamic γ Oscillation Underlying Rapid Eye Movement Sleep Abnormality in Parkinsonian Patients. Mov Disord. 2025;40(3):456-467.'}</p>
+                      '引用:Wang, Z., Jiang, C., Guan, L. et al. Deep brain stimulation of habenula reduces depressive symptoms and modulates brain activities in treatment-resistant depression. Nat. Mental Health 2, 1045–1052 (2024). Guan L, Yu H, Chen Y, et al. Subthalamic γ Oscillation Underlying Rapid Eye Movement Sleep Abnormality in Parkinsonian Patients. Mov Disord. 2025;40(3):456-467.' : 
+                      'Citation: Wang, Z., Jiang, C., Guan, L. et al. Deep brain stimulation of habenula reduces depressive symptoms and modulates brain activities in treatment-resistant depression. Nat. Mental Health 2, 1045–1052 (2024). Guan L, Yu H, Chen Y, et al. Subthalamic γ Oscillation Underlying Rapid Eye Movement Sleep Abnormality in Parkinsonian Patients. Mov Disord. 2025;40(3):456-467.'}</p>
                 `;
             } else if (articleId === 'bci-article') {
                 articleHTML = `
-                    <h3 id="article-detail">${currentLanguage === 'chinese' ? 'NNSR在实时脑机接口研究中的应用' : 'Application of NNSR in Real-time Brain-Computer Interface Research'}</h3>
+                    <h3>${currentLanguage === 'chinese' ? 'NNSR在实时脑机接口研究中的应用' : 'Application of NNSR in Real-time Brain-Computer Interface Research'}</h3>
                     <p>${currentLanguage === 'chinese' ? 
                       'NNSR平台的低延迟信号处理能力使其成为开发实时脑机接口的理想工具。研究团队利用NNSR的自动信号清洗和特征提取功能，开发了一个能够在毫秒级延迟内解码运动意图的BCI系统。' : 
                       'The low-latency signal processing capabilities of the NNSR platform make it an ideal tool for developing real-time brain-computer interfaces. The research team utilized NNSR\'s automatic signal cleaning and feature extraction functions to develop a BCI system capable of decoding motor intentions within millisecond-level delays.'}</p>
                     <p>${currentLanguage === 'chinese' ? 
-                      '引用:  Yue Chen, Guokun Zhang, Lingxiao Guan, Chen Gong, Bozhi Ma, Hongwei Hao, Luming Li, Progress in the development of a fully implantable brain–computer interface: the potential of sensing-enabled neurostimulators, National Science Review, Volume 9, Issue 10, October 2022, nwac099' : 
-                      'Citation: Yue Chen, Guokun Zhang, Lingxiao Guan, Chen Gong, Bozhi Ma, Hongwei Hao, Luming Li, Progress in the development of a fully implantable brain–computer interface: the potential of sensing-enabled neurostimulators, National Science Review, Volume 9, Issue 10, October 2022, nwac099'}</p>
+                      '引用: Yue Chen, Guokun Zhang, Lingxiao Guan, Chen Gong, Bozhi Ma, Hongwei Hao, Luming Li, Progress in the development of a fully implantable brain–computer interface: the potential of sensing-enabled neurostimulators, National Science Review, Volume 9, Issue 10, October 2022, nwac099'' : 
+                      'Citation: Yue Chen, Guokun Zhang, Lingxiao Guan, Chen Gong, Bozhi Ma, Hongwei Hao, Luming Li, Progress in the development of a fully implantable brain–computer interface: the potential of sensing-enabled neurostimulators, National Science Review, Volume 9, Issue 10, October 2022, nwac099''}</p>
                 `;
             }
             
             content.innerHTML = articleHTML;
             popup.classList.add('active');
-            popup.setAttribute('aria-hidden', 'false');
-            
-            // Set focus to close button
-            setTimeout(() => {
-                popup.querySelector('.close-popup').focus();
-            }, 100);
         }
         
         function closeArticlePopup() {
             const popup = document.getElementById('articlePopup');
             popup.classList.remove('active');
-            popup.setAttribute('aria-hidden', 'true');
         }
         
-        // Function to play specific video with error handling
+        // Function to play specific video
         function playVideo(videoSource) {
             const demoVideo = document.getElementById('demoVideo');
             const source = demoVideo.querySelector('source');
@@ -1583,115 +1492,63 @@
             // Update video source
             source.src = `Pic/${videoSource}`;
             
-            // Error handling for video loading
-            demoVideo.onerror = function() {
-                console.error('Video failed to load:', videoSource);
-                // Fallback to image if video doesn't load
-                const fallbackImg = document.createElement('img');
-                fallbackImg.src = 'Pic/0I8A5186.jpg';
-                fallbackImg.alt = 'NNSR interface fallback image';
-                demoVideo.parentNode.replaceChild(fallbackImg, demoVideo);
-            };
-            
             // Reload and play video
             demoVideo.load();
-            
-            // Only play if browser supports autoplay
-            const playPromise = demoVideo.play();
-            if (playPromise !== undefined) {
-                playPromise.catch(error => {
-                    console.warn('Autoplay was prevented. Muted videos can usually autoplay:', error);
-                });
-            }
+            demoVideo.play();
             
             // Scroll to video section
             document.querySelector('.gif-container').scrollIntoView({ behavior: 'smooth' });
         }
         
-        // Setup smooth scrolling
-        function setupSmoothScroll() {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    
-                    // Close mobile menu if open
-                    const navLinks = document.querySelector('.nav-links');
-                    if (navLinks.classList.contains('active')) {
-                        navLinks.classList.remove('active');
-                        document.querySelector('.mobile-toggle').setAttribute('aria-expanded', 'false');
-                    }
-                    
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                        
-                        // Set focus to the target element if it's focusable, or the first focusable element inside it
-                        setTimeout(() => {
-                            if (targetElement.tabIndex >= 0) {
-                                targetElement.focus();
-                            } else {
-                                const focusableElement = targetElement.querySelector('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
-                                if (focusableElement) {
-                                    focusableElement.focus();
-                                }
-                            }
-                        }, 500);
-                    }
-                });
-            });
-        }
+        // Add event listener to WeChat link
+        document.getElementById('wechatLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            openWechatModal();
+        });
         
-        // Close modal when clicking outside of it or pressing Escape
+        // Close modal when clicking outside of it
         window.onclick = function(event) {
             const wechatModal = document.getElementById('wechatModal');
             const imagePopup = document.getElementById('imagePopup');
             const articlePopup = document.getElementById('articlePopup');
             
             if (event.target == wechatModal) {
-                closeWechatModal();
+                wechatModal.style.display = 'none';
             }
             
             if (event.target == imagePopup) {
-                closeImagePopup();
+                imagePopup.classList.remove('active');
             }
             
             if (event.target == articlePopup) {
-                closeArticlePopup();
+                articlePopup.classList.remove('active');
             }
-        };
+        }
         
-        // Close modals with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                const wechatModal = document.getElementById('wechatModal');
-                const imagePopup = document.getElementById('imagePopup');
-                const articlePopup = document.getElementById('articlePopup');
-                const languageModal = document.getElementById('languageModal');
+        // Smooth scroll to anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
                 
-                if (wechatModal.style.display === 'block') {
-                    closeWechatModal();
+                // Close mobile menu if open
+                const navLinks = document.querySelector('.nav-links');
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
                 }
                 
-                if (imagePopup.classList.contains('active')) {
-                    closeImagePopup();
-                }
-                
-                if (articlePopup.classList.contains('active')) {
-                    closeArticlePopup();
-                }
-                
-                // Don't close the language modal with Escape if it's the only one open
-                if (languageModal.style.display === 'block' && 
-                    wechatModal.style.display !== 'block' && 
-                    !imagePopup.classList.contains('active') && 
-                    !articlePopup.classList.contains('active')) {
-                    // Do nothing - keep language modal open
-                }
-            }
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Set default language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Make sure the language selection modal is visible
+            document.getElementById('languageModal').style.display = 'block';
+            
+            // Default to English on initial load
+            setLanguage('english');
         });
     </script>
 </body>
