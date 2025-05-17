@@ -2,12 +2,13 @@ version: 2
 build:
   os: ubuntu-20.04
   tools:
-    python: "3.9"
+    python: "3.10"
   jobs:
     pre_install:
       - pip install mkdocs
       - pip install mkdocs-material
     build:
-      # 使用 'commands' 来定义构建步骤
-      commands:
-        - mkdocs build --clean --site-dir $READTHEDOCS_OUTPUT/html --config-file mkdocs.yml
+      type: html
+    # 如需自定义命令，可定义其他阶段
+    pre_build:
+      - echo "Running pre build commands"
