@@ -2,5 +2,5 @@ version: 2
 build:
   os: ubuntu-20.04
   commands:
-    - pip install mkdocs
+    - pip install mkdocs==1.1  # 指定版本
     - mkdocs build
