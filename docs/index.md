@@ -1,14 +1,31 @@
-# NNSR Toolbox 用户说明书
+# NNSR - Neural Signal Reader
 
-欢迎使用 NNSR Toolbox，这是一款专为脑深部电刺激(Deep Brain Stimulation, DBS)感知信号分析而设计的综合软件平台。该工具基于MATLAB环境开发，集成了离线分析和在线分析两大核心功能模块，旨在为神经科学研究人员和临床医生提供一套完整的电生理数据处理与分析解决方案。
+欢迎使用NERCN Neural Signal Reader (NNSR) 文档!
 
-## 目录
+## 简介
 
-- [1. 简介](1-introduction.md)
-- [2. 安装指南](2-installation.md)
-- [3. 软件功能概述](3-features.md)
-- [4. 离线分析系统](4-offline-analysis.md)
-- [5. 在线分析系统](5-online-analysis.md)
-- [6. 应用场景](6-use-cases.md)
-- [7. 常见问题与故障排除](7-faq.md)
-- [8. 技术支持](8-support.md)
+NNSR是一个专为神经信号处理和分析设计的开源工具包。它提供了从数据采集到信号处理、特征提取和分析的全套解决方案。
+
+## 主要功能
+
+- **在线分析**：实时处理和可视化神经信号
+- **离线分析**：深入分析已记录的数据集
+- **多格式支持**：兼容多种神经信号数据格式
+- **可扩展性**：模块化设计，易于扩展和定制
+
+## 快速入门
+
+请参考[安装指南](installation.md)开始使用NNSR。
+
+## 文档结构
+
+- [功能特性](features.md) - 详细的功能列表和说明
+- [使用场景](use-cases.md) - 常见使用场景和最佳实践
+- [在线分析](online-analysis.md) - 实时数据分析指南
+- [离线分析](offline-analysis.md) - 记录数据的处理和分析
+- [常见问题](faq.md) - 常见问题解答
+- [技术支持](support.md) - 获取帮助和技术支持
+
+## 贡献
+
+NNSR是一个开源项目，欢迎访问我们的[GitHub仓库](https://github.com/NERCN/NNSR)。
