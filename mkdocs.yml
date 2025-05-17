@@ -1,9 +1,9 @@
 site_name: NNSR
-site_description: NERCN Neural Signal Reader Documentation
+site_description: NERCN NeuralSignal Processing Toolbox Documentation
 site_author: NERCN Team
 
 # 仓库链接
-repo_url: https://github.com/NERCN/NNSR
+repo_url: https://github.com/NERCN/NNSR-Toolbox
 edit_uri: edit/main/docs/
 
 # 版权信息
@@ -30,9 +30,23 @@ theme:
     - search.highlight
     - content.code.copy
   palette:
-    primary: indigo
-    accent: indigo
-
+    # 默认使用深色模式
+    - media: "(prefers-color-scheme)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: 切换到浅色模式
+    # 浅色模式选项
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: 切换到深色模式
+        
 # Markdown扩展
 markdown_extensions:
   - admonition
