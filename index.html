@@ -1079,13 +1079,15 @@
         }
         
         .btn-highlight {
-            background: linear-gradient(135deg, #FF6B6B, #C44569);
-            box-shadow: 0 4px 12px rgba(196, 69, 105, 0.4);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            box-shadow: 0 4px 12px var(--shadow);
         }
         
         .btn-highlight:hover {
-            background: linear-gradient(135deg, #FF5252, #B83B5E);
-            box-shadow: 0 6px 16px rgba(196, 69, 105, 0.5);
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            box-shadow: 0 6px 16px var(--shadow);
+            transform: translateY(-3px);
         }
         
         /* Responsive design */
@@ -1236,7 +1238,14 @@
             <h3 class="modal-title english" style="display:none;">Fill Survey</h3>
             <p class="chinese">填写后将收到工具上线后的邮件通知</p>
             <p class="english" style="display:none;">You will receive an email notification after the tool is launched</p>
-            <iframe src="http://wenjuan.tsinghua.edu.cn/iframe/682f395d1d36a514db81f0c8/" class="survey-iframe"></iframe>
+            <iframe src="http://wenjuan.tsinghua.edu.cn/s/f6vuaa/" class="survey-iframe"></iframe>
+            <p style="margin-top: 10px; font-size: 0.9rem;">
+                <span class="chinese">如无法访问，请使用备用地址：</span>
+                <span class="english" style="display:none;">If you cannot access, please use the alternative link:</span>
+                <a href="http://thulingxiaoguan.mikecrm.com/oTfgtXx" target="_blank" style="color: var(--primary); text-decoration: underline;">
+                    http://thulingxiaoguan.mikecrm.com/oTfgtXx
+                </a>
+            </p>
         </div>
     </div>
     
@@ -1540,8 +1549,8 @@
             </div>
             
             <div style="margin: 2rem 0;" data-aos="fade-up">
-                <a href="#" onclick="openSurveyModal(); return false;" class="btn btn-highlight">
-                    <i class="fa-solid fa-bell"></i> 
+                <a href="#" onclick="openSurveyModal(); return false;" class="btn-highlight">
+                    <i class="fa-solid"></i> 
                     <span class="chinese">填写问卷，获取第一时间发布通知</span>
                     <span class="english" style="display:none;">Fill Survey for Launch Notification</span>
                 </a>
