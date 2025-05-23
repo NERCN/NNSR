@@ -280,6 +280,34 @@
             text-align: center;
         }
         
+        /* New startup image container */
+        .startup-image-container {
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2rem 0;
+        }
+        
+        .startup-image {
+            max-width: 100%;
+            max-height: 500px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(92, 48, 125, 0.2);
+            border: 3px solid var(--primary-light);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .startup-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 40px rgba(92, 48, 125, 0.3);
+        }
+        
+        .startup-caption {
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+        
         .card-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -322,14 +350,13 @@
         .card-icon {
             font-size: 2.3rem;
             color: var(--primary);
-            margin-bottom: 1.2rem;
-            background-color: var(--secondary);
             width: 60px;
             height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
+            background-color: var(--secondary);
             margin-bottom: 1.5rem;
         }
         
@@ -361,6 +388,51 @@
         
         .btn-red:hover {
             box-shadow: 0 6px 12px var(--shadow);
+        }
+        
+        /* Enhanced survey button styles */
+        .btn-highlight {
+            background: linear-gradient(135deg, #FF6B6B, #C44569);
+            color: var(--white);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+            font-size: 1.1rem;
+            padding: 1rem 2.5rem;
+            position: relative;
+            overflow: hidden;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+            }
+            50% {
+                box-shadow: 0 8px 30px rgba(255, 107, 107, 0.6);
+            }
+            100% {
+                box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+            }
+        }
+        
+        .btn-highlight:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-highlight:hover {
+            background: linear-gradient(135deg, #FF7E7E, #D45872);
+            box-shadow: 0 10px 35px rgba(255, 107, 107, 0.5);
+            transform: translateY(-3px) scale(1.05);
+        }
+        
+        .btn-highlight:hover:before {
+            left: 100%;
         }
         
         .feature-container {
@@ -1006,12 +1078,24 @@
             animation: modalopen 0.4s;
         }
         
-        .survey-iframe {
-            width: 100%;
-            height: 500px;
-            border: none;
-            border-radius: 10px;
-            margin-top: 20px;
+        @media (max-width: 768px) {
+            .survey-modal-content {
+                margin: 10% auto;
+                padding: 20px;
+                max-width: 90%;
+            }
+            
+            .modal-content {
+                padding: 20px;
+                max-width: 90%;
+                margin: 10% auto;
+            }
+            
+            .upload-modal-content {
+                margin: 10% auto;
+                padding: 20px;
+                max-width: 90%;
+            }
         }
         
         /* Upload modal */
@@ -1078,28 +1162,28 @@
             color: var(--text-light);
         }
         
-        .btn-highlight {
-            background: linear-gradient(135deg, #FF6B6B, #C44569);
-            box-shadow: 0 4px 12px rgba(196, 69, 105, 0.4);
-        }
-        
-        .btn-highlight:hover {
-            background: linear-gradient(135deg, #FF5252, #B83B5E);
-            box-shadow: 0 6px 16px rgba(196, 69, 105, 0.5);
-        }
-        
         /* Responsive design */
         @media (max-width: 768px) {
             header {
-                padding: 3rem 0;
+                padding: 2.5rem 0;
             }
             
             header h1 {
-                font-size: 2.2rem;
+                font-size: 1.8rem;
+                line-height: 1.3;
+            }
+            
+            header p {
+                font-size: 1rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
             }
             
             .container {
-                padding: 2rem;
+                padding: 1.5rem;
+                margin: 1.5rem auto;
             }
             
             .mobile-toggle {
@@ -1124,19 +1208,65 @@
             
             .nav-links a {
                 padding: 0.8rem 2rem;
+                font-size: 0.95rem;
             }
             
             .demo-section, .artifact-section {
-                margin: 3rem -2rem;
-                padding: 2rem;
+                margin: 2rem -1.5rem;
+                padding: 1.5rem;
             }
             
             .feature-container {
                 grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .feature {
+                padding: 1.5rem;
             }
             
             .feature:nth-child(1), .feature:nth-child(4) {
                 grid-column: span 1;
+                padding: 1.5rem;
+            }
+            
+            .feature h3 {
+                font-size: 1.1rem;
+            }
+            
+            .feature p {
+                font-size: 0.9rem;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+            
+            .card h3 {
+                font-size: 1.1rem;
+            }
+            
+            .card p {
+                font-size: 0.85rem;
+            }
+            
+            .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.95rem;
+            }
+            
+            .btn-highlight {
+                font-size: 1rem;
+                padding: 0.9rem 2rem;
+            }
+            
+            .contact-section {
+                padding: 1.2rem;
+            }
+            
+            .release-notice {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
             }
             
             .social-icons {
@@ -1147,9 +1277,63 @@
                 flex-wrap: wrap;
             }
             
+            .nav-logo-text {
+                font-size: 1rem;
+            }
+            
             .logo-img {
-                height: 30px;
-                margin-right: 8px;
+                height: 25px;
+                margin-right: 5px;
+            }
+            
+            .footer-content {
+                gap: 1.5rem;
+            }
+            
+            .footer-column {
+                text-align: center;
+            }
+            
+            .image-gallery {
+                gap: 1rem;
+            }
+            
+            .gallery-item img {
+                height: 150px;
+            }
+            
+            section {
+                margin-bottom: 2.5rem;
+            }
+            
+            p {
+                font-size: 0.9rem;
+            }
+            
+            .intro-text {
+                font-size: 0.95rem;
+            }
+            
+            .feature-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.5rem;
+                margin-right: 1rem;
+            }
+            
+            .card-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.8rem;
+            }
+            
+            .startup-image-container {
+                margin: 2rem 0;
+                padding: 1rem 0;
+            }
+            
+            .startup-image {
+                max-height: 300px;
             }
         }
     </style>
@@ -1219,8 +1403,8 @@
             <span class="close-modal" onclick="closeModal('downloadModal')">&times;</span>
             <h3 class="modal-title chinese">NNSR即将发布</h3>
             <h3 class="modal-title english" style="display:none;">NNSR Coming Soon</h3>
-            <p class="chinese">我们将于2025年7月15日发布NNSR分析平台，届时将开放使用。</p>
-            <p class="english" style="display:none;">We will release the NNSR analysis platform on July 15, 2025, and it will be open for use then.</p>
+            <p class="chinese">我们将于2025年7月14日发布NNSR分析平台，届时将开放使用。</p>
+            <p class="english" style="display:none;">We will release the NNSR analysis platform on July 14, 2025, and it will be open for use then.</p>
             <button class="btn" onclick="openSurveyModal()">
                 <span class="chinese">填写问卷，获取上线通知</span>
                 <span class="english" style="display:none;">Fill Survey for Launch Notification</span>
@@ -1236,7 +1420,24 @@
             <h3 class="modal-title english" style="display:none;">Fill Survey</h3>
             <p class="chinese">填写后将收到工具上线后的邮件通知</p>
             <p class="english" style="display:none;">You will receive an email notification after the tool is launched</p>
-            <iframe src="http://wenjuan.tsinghua.edu.cn/iframe/682f395d1d36a514db81f0c8/" class="survey-iframe"></iframe>
+            
+            <div style="margin: 2rem 0;">
+                <p style="margin-bottom: 1rem;">
+                    <span class="chinese">主要问卷地址：</span>
+                    <span class="english" style="display:none;">Main survey link:</span>
+                </p>
+                <a href="http://wenjuan.tsinghua.edu.cn/s/f6vuaa/" target="_blank" style="display: block; color: var(--primary); padding: 1rem; background: var(--secondary); border-radius: 8px; text-decoration: none; margin-bottom: 1.5rem; transition: all 0.3s; word-break: break-all;" onmouseover="this.style.backgroundColor='var(--primary)'; this.style.color='var(--white)';" onmouseout="this.style.backgroundColor='var(--secondary)'; this.style.color='var(--primary)';">
+                    <i class="fa-solid fa-external-link-alt"></i> http://wenjuan.tsinghua.edu.cn/s/f6vuaa/
+                </a>
+                
+                <p style="margin-bottom: 1rem;">
+                    <span class="chinese">备用问卷地址：</span>
+                    <span class="english" style="display:none;">Alternative survey link:</span>
+                </p>
+                <a href="http://thulingxiaoguan.mikecrm.com/oTfgtXx" target="_blank" style="display: block; color: var(--primary); padding: 1rem; background: var(--secondary); border-radius: 8px; text-decoration: none; transition: all 0.3s; word-break: break-all;" onmouseover="this.style.backgroundColor='var(--primary)'; this.style.color='var(--white)';" onmouseout="this.style.backgroundColor='var(--secondary)'; this.style.color='var(--primary)';">
+                    <i class="fa-solid fa-external-link-alt"></i> http://thulingxiaoguan.mikecrm.com/oTfgtXx
+                </a>
+            </div>
         </div>
     </div>
     
@@ -1260,16 +1461,18 @@
                 <h4 class="chinese">上传说明：</h4>
                 <h4 class="english" style="display:none;">Upload Instructions:</h4>
                 <ol class="chinese">
-                    <li>请上传包含伪迹的原始数据压缩文件，并附带TXT文档说明问题和您的联系方式</li>
-                    <li>我们将努力协助您解决数据处理中的问题</li>
-                    <li>您的数据将用于改进我们的伪迹处理算法</li>
+                    <li>请上传包含伪迹的DBS-LFP原始数据压缩文件，并建议附带TXT文档说明问题和您的联系方式</li>
+                    <li>我们将可能协助您解决数据处理中的问题</li>
+                    <li>您的数据将用于改进该开放系统的伪迹处理算法</li>
                     <li>我们承诺严格保护数据隐私，不用于其他任何用途</li>
+                    <li>成功上传文件将默认您知晓以上内容</li>
                 </ol>
                 <ol class="english" style="display:none;">
-                    <li>Please upload compressed raw data files containing artifacts, along with a TXT document describing the issue and your contact information</li>
-                    <li>We will do our best to help you solve data processing problems</li>
-                    <li>Your data will be used to improve our artifact processing algorithms</li>
-                    <li>We promise to strictly protect data privacy and not use it for any other purpose</li>
+                    <li>Please upload a compressed file of the raw DBS-LFP data containing artifacts, and we recommend attaching a TXT document explaining the issue and your contact information.</li>
+                    <li>We may assist you in resolving issues during data processing</li>
+                    <li>Your data will be used to improve the artifact processing algorithm of this open system</li>
+                    <li>We are committed to strictly protecting data privacy and will not use it for any other purposes</li>
+                    <li>By successfully uploading the file, you acknowledge the above content</li>
                 </ol>
                 <p class="chinese"><strong>感谢您的支持与信任！</strong></p>
                 <p class="english" style="display:none;"><strong>Thank you for your support and trust!</strong></p>
@@ -1331,6 +1534,13 @@
         <section>
             <p class="intro-text chinese">NNSR专为处理和分析神经信号而设计，提供全面的工具集，助力深部脑刺激及神经科学研究突破。</p>
             <p class="intro-text english" style="display:none;">NNSR is designed for processing and analyzing neural signals, offering comprehensive tools for deep brain stimulation and breakthroughs in neuroscience research.</p>
+            
+            <!-- New startup image container -->
+            <div class="startup-image-container" data-aos="zoom-in" data-aos-delay="300">
+                <img src="Pic/startup-placeholder.jpg" alt="NNSR Startup Interface" class="startup-image" id="startupImage">
+                <p class="startup-caption chinese">NNSR 启动界面</p>
+                <p class="startup-caption english" style="display:none;">NNSR Startup Interface</p>
+            </div>
         </section>
         
         <section id="features">
@@ -1388,8 +1598,8 @@
                     <!-- Fallback to image if video isn't supported -->
                     <img src="Pic/0I8A5186.jpg" alt="NNSR" />
                 </video>
-                <p class="chinese">NNSR界面展示自动信号处理和特征提取功能</p>
-                <p class="english" style="display:none;">NNSR interface demonstrating automated signal processing and feature extraction</p>
+                <p class="chinese">NNSR界面展示</p>
+                <p class="english" style="display:none;">NNSR interface</p>
             </div>
             
             <h2 class="chinese" data-aos="fade-up">界面示例(点击播放)</h2>
@@ -1533,10 +1743,10 @@
             <p><a href="mailto:guanlx18@tsinghua.org.cn">guanlx18@tsinghua.org.cn</a></p>
             
             <div class="release-notice chinese" data-aos="fade-up">
-                <i class="fa-solid fa-bullhorn"></i> NNSR分析平台将于2025年7月15日正式发布
+                <i class="fa-solid fa-bullhorn"></i> NNSR分析平台将于2025年7月14日正式发布
             </div>
             <div class="release-notice english" style="display:none;" data-aos="fade-up">
-                <i class="fa-solid fa-bullhorn"></i> NNSR analysis platform will be officially released on July 15, 2025
+                <i class="fa-solid fa-bullhorn"></i> NNSR analysis platform will be officially released on July 14, 2025
             </div>
             
             <div style="margin: 2rem 0;" data-aos="fade-up">
@@ -1832,6 +2042,13 @@
             
             // Default to English on initial load
             setLanguage('english');
+            
+            // Set placeholder image for startup interface
+            const startupImg = document.getElementById('startupImage');
+            startupImg.onerror = function() {
+                // If image doesn't exist, hide the container
+                this.parentElement.style.display = 'none';
+            };
         });
     </script>
 </body>
