@@ -1161,6 +1161,116 @@
             margin-bottom: 10px;
             color: var(--text-light);
         }
+
+        /* New download modal styles */
+        .download-modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .download-modal-content {
+            background-color: var(--white);
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            text-align: center;
+            animation: modalopen 0.4s;
+        }
+
+        .download-link {
+            color: var(--primary);
+            font-weight: 600;
+            word-break: break-all;
+            display: block;
+            margin: 20px 0;
+            padding: 15px;
+            background: var(--secondary);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .download-link:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* GitHub modal styles */
+        .github-modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .github-modal-content {
+            background-color: var(--white);
+            margin: 15% auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            text-align: center;
+            animation: modalopen 0.4s;
+        }
+
+        /* Documentation modal styles */
+        .docs-modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .docs-modal-content {
+            background-color: var(--white);
+            margin: 15% auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            text-align: center;
+            animation: modalopen 0.4s;
+        }
+
+        /* Tutorial maintenance modal */
+        .tutorial-modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .tutorial-modal-content {
+            background-color: var(--white);
+            margin: 15% auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            text-align: center;
+            animation: modalopen 0.4s;
+        }
         
         /* Responsive design */
         @media (max-width: 768px) {
@@ -1375,40 +1485,65 @@
         </div>
     </div>
     
-    <!-- Coming Soon Modal for Tutorials -->
-    <div id="comingSoonModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('comingSoonModal')">&times;</span>
-            <h3 class="modal-title chinese">即将上线</h3>
-            <h3 class="modal-title english" style="display:none;">Coming Soon</h3>
-            <p class="chinese">教程内容将与系统一起正式上线</p>
-            <p class="english" style="display:none;">Tutorial content will be launched together with the system</p>
-        </div>
-    </div>
-    
-    <!-- Document Coming Soon Modal -->
-    <div id="docComingSoonModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('docComingSoonModal')">&times;</span>
-            <h3 class="modal-title chinese">即将上线</h3>
-            <h3 class="modal-title english" style="display:none;">Coming Soon</h3>
-            <p class="chinese">完整文档将与系统一起正式发布</p>
-            <p class="english" style="display:none;">Complete documentation will be released together with the system</p>
-        </div>
-    </div>
-    
     <!-- Download Modal -->
-    <div id="downloadModal" class="modal">
-        <div class="modal-content">
+    <div id="downloadModal" class="download-modal">
+        <div class="download-modal-content">
             <span class="close-modal" onclick="closeModal('downloadModal')">&times;</span>
-            <h3 class="modal-title chinese">NNSR即将发布</h3>
-            <h3 class="modal-title english" style="display:none;">NNSR Coming Soon</h3>
-            <p class="chinese">我们将于2025年7月14日发布NNSR分析平台，届时将开放使用。</p>
-            <p class="english" style="display:none;">We will release the NNSR analysis platform on July 14, 2025, and it will be open for use then.</p>
-            <button class="btn" onclick="openSurveyModal()">
-                <span class="chinese">填写问卷，获取上线通知</span>
-                <span class="english" style="display:none;">Fill Survey for Launch Notification</span>
-            </button>
+            <h3 class="modal-title chinese">下载 NNSR</h3>
+            <h3 class="modal-title english" style="display:none;">Download NNSR</h3>
+            <p class="chinese">点击下方链接下载最新版本</p>
+            <p class="english" style="display:none;">Click the link below to download the latest version</p>
+            
+            <a href="https://cloud.tsinghua.edu.cn/d/075d6fb8c64d4fc3ac12/" target="_blank" class="download-link" onclick="closeModal('downloadModal')">
+                <i class="fa-solid fa-download"></i>
+                <span class="chinese">立即下载 NNSR v0.2.0</span>
+                <span class="english" style="display:none;">Download NNSR v0.2.0 Now</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- GitHub Modal -->
+    <div id="githubModal" class="github-modal">
+        <div class="github-modal-content">
+            <span class="close-modal" onclick="closeModal('githubModal')">&times;</span>
+            <h3 class="modal-title chinese">GitHub 源代码</h3>
+            <h3 class="modal-title english" style="display:none;">GitHub Source Code</h3>
+            <p class="chinese">访问我们的 GitHub 仓库获取源代码</p>
+            <p class="english" style="display:none;">Visit our GitHub repository to access the source code</p>
+            
+            <a href="https://github.com/NERCN/NNSR_TOOLBOX" target="_blank" class="download-link" onclick="closeModal('githubModal')">
+                <i class="fa-brands fa-github"></i>
+                <span class="chinese">访问 GitHub 仓库</span>
+                <span class="english" style="display:none;">Visit GitHub Repository</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Documentation Modal -->
+    <div id="docsModal" class="docs-modal">
+        <div class="docs-modal-content">
+            <span class="close-modal" onclick="closeModal('docsModal')">&times;</span>
+            <h3 class="modal-title chinese">文档中心</h3>
+            <h3 class="modal-title english" style="display:none;">Documentation Center</h3>
+            <p class="chinese">访问完整的用户指南和技术文档</p>
+            <p class="english" style="display:none;">Access comprehensive user guides and technical documentation</p>
+            
+            <a href="https://nnsr-tutorial.readthedocs.io/" target="_blank" class="download-link" onclick="closeModal('docsModal')">
+                <i class="fa-solid fa-book"></i>
+                <span class="chinese">查看文档</span>
+                <span class="english" style="display:none;">View Documentation</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Tutorial Maintenance Modal -->
+    <div id="tutorialModal" class="tutorial-modal">
+        <div class="tutorial-modal-content">
+            <span class="close-modal" onclick="closeModal('tutorialModal')">&times;</span>
+            <h3 class="modal-title chinese">教程维护中</h3>
+            <h3 class="modal-title english" style="display:none;">Tutorials Under Maintenance</h3>
+            <p class="chinese">教程内容正在维护中，将于后续版本上线</p>
+            <p class="english" style="display:none;">Tutorial content is under maintenance and will be available in future releases</p>
         </div>
     </div>
     
@@ -1418,8 +1553,8 @@
             <span class="close-modal" onclick="closeModal('surveyModal')">&times;</span>
             <h3 class="modal-title chinese">填写问卷</h3>
             <h3 class="modal-title english" style="display:none;">Fill Survey</h3>
-            <p class="chinese">填写后将收到工具上线后的邮件通知</p>
-            <p class="english" style="display:none;">You will receive an email notification after the tool is launched</p>
+            <p class="chinese">如需合作/帮助可以填写问卷以获得最新版本支持</p>
+            <p class="english" style="display:none;">For collaboration/assistance, please fill out the survey to get latest version support</p>
             
             <div style="margin: 2rem 0;">
                 <p style="margin-bottom: 1rem;">
@@ -1435,7 +1570,7 @@
                     <span class="english" style="display:none;">Alternative survey link:</span>
                 </p>
                 <a href="http://thulingxiaoguan.mikecrm.com/oTfgtXx" target="_blank" style="display: block; color: var(--primary); padding: 1rem; background: var(--secondary); border-radius: 8px; text-decoration: none; transition: all 0.3s; word-break: break-all;" onmouseover="this.style.backgroundColor='var(--primary)'; this.style.color='var(--white)';" onmouseout="this.style.backgroundColor='var(--secondary)'; this.style.color='var(--primary)';">
-                    <i class="fa-solid fa-external-link-alt"></i> http://thulingxiaoguan.mikecrm.com/oTfgtXx
+                    <i class="fa-solid fa-external-link-alt"></i> http://thulingxiaoguan.mikecrm.com/r68dsgG
                 </a>
             </div>
         </div>
@@ -1537,7 +1672,7 @@
             
             <!-- New startup image container -->
             <div class="startup-image-container" data-aos="zoom-in" data-aos-delay="300">
-                <img src="Pic/startup-placeholder.jpg" alt="NNSR Startup Interface" class="startup-image" id="startupImage">
+                <img src="Pic/FIG5.jpg" alt="NNSR Startup Interface" class="startup-image" id="startupImage">
                 <p class="startup-caption chinese">NNSR 启动界面</p>
                 <p class="startup-caption english" style="display:none;">NNSR Startup Interface</p>
             </div>
@@ -1651,9 +1786,9 @@
                     <h3 class="english" style="display:none;">Source Code</h3>
                     <p class="chinese">访问MATLAB源代码，定制并集成到研究工作流程中。</p>
                     <p class="english" style="display:none;">Access MATLAB source code for customization and workflow integration.</p>
-                    <!-- Updated with GitHub link placeholder -->
-                    <a href="https://github.com/NERCN/NNSR_TOOLBOX" class="btn chinese">GitHub仓库</a>
-                    <a href="https://github.com/NERCN/NNSR_TOOLBOX" class="btn english" style="display:none;">GitHub Repo</a>
+                    <!-- Updated with GitHub modal trigger -->
+                    <a href="#" onclick="openGithubModal(); return false;" class="btn chinese">GitHub仓库</a>
+                    <a href="#" onclick="openGithubModal(); return false;" class="btn english" style="display:none;">GitHub Repo</a>
                 </div>
                 <div class="card" data-aos="fade-up" data-aos-delay="300">
                     <div class="card-icon"><i class="fa-solid fa-book"></i></div>
@@ -1661,9 +1796,9 @@
                     <h3 class="english" style="display:none;">Documentation</h3>
                     <p class="chinese">全面的用户指南和技术文档。包含详细参考和工作流程示例。</p>
                     <p class="english" style="display:none;">Comprehensive user guide and technical documentation. Includes detailed references and workflow examples.</p>
-                    <!-- Updated with documentation coming soon modal -->
-                    <a href="#" onclick="openDocComingSoonModal(); return false;" class="btn btn-red chinese">阅读文档</a>
-                    <a href="#" onclick="openDocComingSoonModal(); return false;" class="btn btn-red english" style="display:none;">Read Docs</a>
+                    <!-- Updated with documentation modal -->
+                    <a href="#" onclick="openDocsModal(); return false;" class="btn btn-red chinese">阅读文档</a>
+                    <a href="#" onclick="openDocsModal(); return false;" class="btn btn-red english" style="display:none;">Read Docs</a>
                 </div>
                 <div class="card" data-aos="fade-up" data-aos-delay="400">
                     <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
@@ -1671,9 +1806,9 @@
                     <h3 class="english" style="display:none;">Tutorials</h3>
                     <p class="chinese">帮助上手的分步教程。从基础到高级应用，循序渐进指导您掌握NNSR平台。</p>
                     <p class="english" style="display:none;">Step-by-step tutorials to help you get started. From basics to advanced applications, progressively guide you to master the NNSR platform.</p>
-                    <!-- Updated with coming soon modal -->
-                    <a href="#" onclick="openComingSoonModal(); return false;" class="btn chinese">查看教程</a>
-                    <a href="#" onclick="openComingSoonModal(); return false;" class="btn english" style="display:none;">View Tutorials</a>
+                    <!-- Updated with tutorial maintenance modal -->
+                    <a href="#" onclick="openTutorialModal(); return false;" class="btn chinese">查看教程</a>
+                    <a href="#" onclick="openTutorialModal(); return false;" class="btn english" style="display:none;">View Tutorials</a>
                 </div>
             </div>
         </section>
@@ -1742,18 +1877,11 @@
             <!-- Added email link -->
             <p><a href="mailto:guanlx18@tsinghua.org.cn">guanlx18@tsinghua.org.cn</a></p>
             
-            <div class="release-notice chinese" data-aos="fade-up">
-                <i class="fa-solid fa-bullhorn"></i> NNSR分析平台将于2025年7月14日正式发布
-            </div>
-            <div class="release-notice english" style="display:none;" data-aos="fade-up">
-                <i class="fa-solid fa-bullhorn"></i> NNSR analysis platform will be officially released on July 14, 2025
-            </div>
-            
             <div style="margin: 2rem 0;" data-aos="fade-up">
                 <a href="#" onclick="openSurveyModal(); return false;" class="btn btn-highlight">
                     <i class="fa-solid fa-bell"></i> 
-                    <span class="chinese">填写问卷，获取第一时间发布通知</span>
-                    <span class="english" style="display:none;">Fill Survey for Launch Notification</span>
+                    <span class="chinese">如需合作/帮助可以填写问卷以获得最新版本支持</span>
+                    <span class="english" style="display:none;">For collaboration/assistance, fill survey to get latest version support</span>
                 </a>
             </div>
             
@@ -1888,19 +2016,24 @@
             document.getElementById('wechatModal').style.display = 'block';
         }
         
-        // Open Coming Soon modal
-        function openComingSoonModal() {
-            document.getElementById('comingSoonModal').style.display = 'block';
-        }
-        
-        // Open Document Coming Soon modal
-        function openDocComingSoonModal() {
-            document.getElementById('docComingSoonModal').style.display = 'block';
-        }
-        
         // Open Download modal
         function openDownloadModal() {
             document.getElementById('downloadModal').style.display = 'block';
+        }
+
+        // Open GitHub modal
+        function openGithubModal() {
+            document.getElementById('githubModal').style.display = 'block';
+        }
+
+        // Open Documentation modal
+        function openDocsModal() {
+            document.getElementById('docsModal').style.display = 'block';
+        }
+
+        // Open Tutorial maintenance modal
+        function openTutorialModal() {
+            document.getElementById('tutorialModal').style.display = 'block';
         }
         
         // Open Survey modal
@@ -1993,7 +2126,7 @@
         
         // Close modal when clicking outside of it
         window.onclick = function(event) {
-            const modals = ['wechatModal', 'comingSoonModal', 'docComingSoonModal', 'downloadModal', 'surveyModal', 'uploadModal'];
+            const modals = ['wechatModal', 'downloadModal', 'githubModal', 'docsModal', 'tutorialModal', 'surveyModal', 'uploadModal'];
             modals.forEach(modalId => {
                 const modal = document.getElementById(modalId);
                 if (event.target == modal) {
