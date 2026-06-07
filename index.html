@@ -1249,6 +1249,41 @@
             animation: modalopen 0.4s;
         }
 
+        /* NNSR Online access modal */
+        .online-modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .online-modal-content {
+            background-color: var(--white);
+            margin: 12% auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            max-width: 560px;
+            text-align: center;
+            animation: modalopen 0.4s;
+        }
+
+        .online-note {
+            text-align: left;
+            background: var(--secondary);
+            border-radius: 10px;
+            padding: 18px;
+            margin: 20px 0;
+        }
+
+        .online-note p {
+            margin-bottom: 0.6rem;
+        }
+
         /* Tutorial maintenance modal */
         .tutorial-modal {
             display: none;
@@ -1536,6 +1571,28 @@
         </div>
     </div>
 
+    <!-- NNSR Online Modal -->
+    <div id="onlineModal" class="online-modal">
+        <div class="online-modal-content">
+            <span class="close-modal" onclick="closeModal('onlineModal')">&times;</span>
+            <h3 class="modal-title chinese">NNSR-online 在线版</h3>
+            <h3 class="modal-title english" style="display:none;">NNSR-online Web Version</h3>
+            <div class="online-note">
+                <p class="chinese">NNSR-online 可通过网页进行在线分析。如需使用在线版本，可发送邮件免费申请使用权限。</p>
+                <p class="english" style="display:none;">NNSR-online supports web-based online analysis. Access to the online version can be requested for free by email.</p>
+                <p>
+                    <i class="fa-solid fa-envelope"></i>
+                    <a href="mailto:guanlx18@tsinghua.org.cn">guanlx18@tsinghua.org.cn</a>
+                </p>
+            </div>
+            <a href="https://nnsr.cpolar.cn/" target="_blank" class="download-link" onclick="closeModal('onlineModal')">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <span class="chinese">继续访问 NNSR-online</span>
+                <span class="english" style="display:none;">Continue to NNSR-online</span>
+            </a>
+        </div>
+    </div>
+
     <!-- Tutorial Maintenance Modal -->
     <div id="tutorialModal" class="tutorial-modal">
         <div class="tutorial-modal-content">
@@ -1800,6 +1857,15 @@
                     <a href="#" onclick="openDocsModal(); return false;" class="btn btn-red chinese">阅读文档</a>
                     <a href="#" onclick="openDocsModal(); return false;" class="btn btn-red english" style="display:none;">Read Docs</a>
                 </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="350">
+                    <div class="card-icon"><i class="fa-solid fa-globe"></i></div>
+                    <h3 class="chinese">NNSR-online</h3>
+                    <h3 class="english" style="display:none;">NNSR-online</h3>
+                    <p class="chinese">访问在线分析版本，无需本地安装即可通过网页使用。在线版可通过邮箱免费申请使用权限。</p>
+                    <p class="english" style="display:none;">Access the web-based analysis version without local installation. Online access can be requested for free by email.</p>
+                    <a href="#" onclick="openOnlineModal(); return false;" class="btn btn-red chinese">访问在线版</a>
+                    <a href="#" onclick="openOnlineModal(); return false;" class="btn btn-red english" style="display:none;">Open Online Version</a>
+                </div>
                 <div class="card" data-aos="fade-up" data-aos-delay="400">
                     <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
                     <h3 class="chinese">教程</h3>
@@ -2031,6 +2097,11 @@
             document.getElementById('docsModal').style.display = 'block';
         }
 
+        // Open NNSR Online modal
+        function openOnlineModal() {
+            document.getElementById('onlineModal').style.display = 'block';
+        }
+
         // Open Tutorial maintenance modal
         function openTutorialModal() {
             document.getElementById('tutorialModal').style.display = 'block';
@@ -2126,7 +2197,7 @@
         
         // Close modal when clicking outside of it
         window.onclick = function(event) {
-            const modals = ['wechatModal', 'downloadModal', 'githubModal', 'docsModal', 'tutorialModal', 'surveyModal', 'uploadModal'];
+            const modals = ['wechatModal', 'downloadModal', 'githubModal', 'docsModal', 'onlineModal', 'tutorialModal', 'surveyModal', 'uploadModal'];
             modals.forEach(modalId => {
                 const modal = document.getElementById(modalId);
                 if (event.target == modal) {
