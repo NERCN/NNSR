@@ -1478,12 +1478,13 @@
             .mobile-toggle { border:0; background:transparent; padding:.5rem; }
         }
         @media(min-width:769px) and (max-width:1100px) { .nav-logo-text { display:none; } }
-        .history-grid { display:grid; grid-template-columns:minmax(0, .85fr) minmax(0, 1.15fr); gap:1.5rem; }
-        .history-grid ol,.history-grid ul { list-style:none; padding:0; }
-        .history-grid li { margin-bottom:1rem; line-height:1.55; }
-        .history-grid ol li { border-left:3px solid var(--accent-light); padding-left:1rem; }
-        .history-grid a { color:var(--primary-dark); text-underline-offset:.18em; }
-        @media(max-width:768px) { .history-grid { grid-template-columns:minmax(0,1fr); } }
+        .footer-publications { width:90%; max-width:1100px; margin:1rem auto; font-size:.85rem; color:var(--text-on-dark); }
+        .footer-publications summary { cursor:pointer; width:fit-content; }
+        .footer-publications summary span { display:inline !important; }
+        html[lang="en"] .footer-publications summary .chinese, html[lang^="zh"] .footer-publications summary .english { display:none !important; }
+        .footer-publications ul { padding-left:1.25rem; }
+        .footer-publications li { margin:.65rem 0; }
+        .footer-publications a { color:inherit; text-decoration:underline; }
     </style>
 </head>
 <body>
@@ -1623,7 +1624,6 @@
             <p class="chinese" data-aos="fade-up" data-aos-delay="200">深部脑信号处理与分析平台</p>
             <p class="english" style="display:none;" data-aos="fade-up" data-aos-delay="200">Deep Brain Signal Processing & Analysis Platform</p>
             <div class="hero-actions">
-                <a class="btn" href="#history"><span class="chinese">历程与发表</span><span class="english" style="display:none">History &amp; publications</span></a>
                 <a class="btn" href="#resources"><span class="chinese">资源与下载 ↓</span><span class="english" style="display:none">Resources &amp; downloads ↓</span></a>
             </div>
         </div>
@@ -1821,28 +1821,6 @@
             </ul>
         </section>
         
-        <section id="history" aria-labelledby="history-title">
-            <h2 id="history-title"><span class="chinese">发展历程与相关发表</span><span class="english" style="display:none">History and publications</span></h2>
-            <div class="history-grid">
-                <article class="card">
-                    <h3><span class="chinese">项目历程</span><span class="english" style="display:none">Project milestones</span></h3>
-                    <ol>
-                        <li><time datetime="2023-06">2023-06</time> · <strong>v0.1.0</strong><span class="chinese">首个正式版本，支持手动解析与可视化。</span><span class="english" style="display:none">First release with manual signal parsing and visualization.</span></li>
-                        <li><time datetime="2025-07">2025-07</time> · <strong>v0.2.0</strong><span class="chinese">加入深度学习伪迹识别与自动处理演示。</span><span class="english" style="display:none">Added a demo of deep-learning artifact detection and automated processing.</span></li>
-                        <li><time datetime="2026-11">2026-11</time> · <strong>NNSR Cloud</strong><span class="chinese">官网整合双线路访问、桌面下载与使用说明书。</span><span class="english" style="display:none">The project homepage brought together both Cloud access routes, desktop downloads and manuals.</span></li>
-                    </ol>
-                    <a href="https://github.com/NERCN/NNSR/blob/main/docs/support.md"><span class="chinese">查看工具箱版本记录</span><span class="english" style="display:none">Toolbox release history</span></a>
-                </article>
-                <article class="card">
-                    <h3><span class="chinese">团队相关发表</span><span class="english" style="display:none">Selected team publications</span></h3>
-                    <ul>
-                        <li><a href="https://doi.org/10.1002/mds.30091">Subthalamic γ Oscillation Underlying Rapid Eye Movement Sleep Abnormality in Parkinsonian Patients</a><br><small>Guan L, Yu H, Chen Y, et al. <i>Movement Disorders</i> (2025).</small></li>
-                        <li><a href="https://doi.org/10.1038/s44220-024-00286-2">Deep brain stimulation of habenula reduces depressive symptoms and modulates brain activities in treatment-resistant depression</a><br><small>Wang Z, Jiang C, Guan L, et al. <i>Nature Mental Health</i> (2024).</small></li>
-                        <li><a href="https://doi.org/10.1093/nsr/nwac099">Progress in the development of a fully implantable brain–computer interface: the potential of sensing-enabled neurostimulators</a><br><small>Chen Y, Zhang G, Guan L, et al. <i>National Science Review</i> (2022).</small></li>
-                    </ul>
-                </article>
-            </div>
-        </section>
         <section id="contact" class="contact-section">
             <h2 class="chinese" data-aos="fade-up">联系我们</h2>
             <h2 class="english" style="display:none;" data-aos="fade-up">Contact Us</h2>
@@ -1916,6 +1894,14 @@
                 </div>
             </div>
         </div>
+        <details class="footer-publications">
+            <summary><span class="chinese">相关发表</span><span class="english" style="display:none">Related publications</span></summary>
+            <ul>
+                <li><a href="https://doi.org/10.1002/mds.30091">Subthalamic γ Oscillation Underlying Rapid Eye Movement Sleep Abnormality in Parkinsonian Patients</a><br><small>Guan L, Yu H, Chen Y, et al. <i>Movement Disorders</i> (2025).</small></li>
+                <li><a href="https://doi.org/10.1038/s44220-024-00286-2">Deep brain stimulation of habenula reduces depressive symptoms and modulates brain activities in treatment-resistant depression</a><br><small>Wang Z, Jiang C, Guan L, et al. <i>Nature Mental Health</i> (2024).</small></li>
+                <li><a href="https://doi.org/10.1093/nsr/nwac099">Progress in the development of a fully implantable brain–computer interface: the potential of sensing-enabled neurostimulators</a><br><small>Chen Y, Zhang G, Guan L, et al. <i>National Science Review</i> (2022).</small></li>
+            </ul>
+        </details>
         <div class="copyright">
             <p class="chinese">&copy; 2025 NERCN NeuroSignal Research | 版权所有</p>
             <p class="english" style="display:none;">&copy; 2025 NERCN NeuroSignal Research | All Rights Reserved</p>
