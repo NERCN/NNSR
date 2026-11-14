@@ -1,44 +1,2134 @@
-<!doctype html>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NNSR | NERCN NeuroSignal Research</title>
-  <meta name="description" content="NNSR 神经信号研究平台的官网、在线分析、工具箱下载与说明书入口。">
-  <link rel="icon" href="Pic/icon_32.png">
-  <style>
-    * { box-sizing: border-box; }
-    body { margin: 0; color: #342c40; font: 1rem/1.7 system-ui, sans-serif; }
-    main { max-width: 42rem; margin: clamp(2rem, 9vh, 6rem) auto; padding: 0 1.5rem; }
-    header { border-bottom: 2px solid #694383; padding-bottom: 1rem; }
-    h1 { margin: 0; color: #502c6c; font-size: 2.6rem; line-height: 1.2; }
-    header p { margin: .4rem 0; }
-    dt { margin-top: 1.1rem; font-weight: 650; }
-    dd { margin: .15rem 0 0; }
-    a { color: #60397b; text-underline-offset: .2em; }
-    dd a { display: inline-block; padding: .25rem 0; margin-right: 1rem; }
-    a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NNSR | NERCN NeuroSignal Research</title>
+    <meta name="description" content="Explore NNSR for deep brain signal research. Access NNSR Cloud, download the desktop toolbox, and read the installation guide.">
+    <link rel="icon" href="Pic/icon_32.png">
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS animation library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <style>
+        :root {
+            /* Main colors - purple theme */
+            --primary: #5C307D;         /* Purple */
+            --primary-light: #7E5198;   /* Light purple */
+            --primary-dark: #451D63;    /* Dark purple */
+            
+            /* Accent colors */
+            --accent: #8C6EAF;          /* Soft light purple */
+            --accent-light: #A791C4;    /* Lighter purple */
+            --accent-dark: #6D458D;     /* Medium dark purple */
+            
+            /* Background colors */
+            --secondary: #F5F0FF;       /* Very light purple background */
+            --dark-bg: #2D2047;         /* Dark purple background */
+            --darker-bg: #1B1233;       /* Deeper background for footer */
+            --card-bg: #ffffff;         /* Card background */
+            
+            /* Text colors */
+            --text: #30284D;            /* Dark text */
+            --text-light: #4F4A68;      /* Secondary text */
+            --text-on-dark: #E8E4FF;    /* Text on dark background */
+            --white: #ffffff;
+            
+            /* Effects */
+            --shadow: rgba(92, 48, 125, 0.15);
+            --gradient: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            --accent-gradient: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            
+            /* Compatibility variables */
+            --red: var(--primary);
+            --red-light: var(--primary-light);
+            --red-dark: var(--primary-dark);
+            --red-gradient: var(--gradient);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.5;
+            color: var(--text);
+            background-color: var(--secondary);
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(126, 81, 152, 0.08) 0%, transparent 20%),
+                radial-gradient(circle at 80% 60%, rgba(126, 81, 152, 0.08) 0%, transparent 20%);
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            padding: 0.8rem 0;
+        }
+        
+        .nav-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* Updated nav-logo to include both logos */
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .nav-logo-text {
+            font-weight: 600;
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-left: 10px;
+        }
+        
+        .logo-img {
+            height: 40px;
+            margin-right: 15px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .language-switch {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            box-shadow: 0 3px 6px var(--shadow);
+        }
+        
+        .language-switch:hover {
+            transform: translateY(-2px);
+            background: var(--primary-dark);
+            box-shadow: 0 5px 10px var(--shadow);
+        }
+        
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+        
+        header {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 16px var(--shadow);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid var(--primary-light);
+        }
+        
+        header:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+        }
+        
+        header h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            position: relative;
+        }
+        
+        header h1:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-light);
+            border-radius: 3px;
+        }
+        
+        header p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+            opacity: 0.95;
+            position: relative;
+            color: var(--white);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 2.5rem auto;
+            background-color: rgba(255, 255, 255, 0.97);
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+            padding: 3rem;
+            overflow: hidden;
+        }
+        
+        section {
+            margin-bottom: 3.5rem;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 1.8rem;
+            padding-bottom: 0.7rem;
+            border-bottom: 2px solid var(--primary-light);
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        h2:after {
+            content: '';
+            display: block;
+            width: 40%;
+            height: 3px;
+            background-color: var(--accent);
+            position: relative;
+            top: 10px;
+            border-radius: 3px;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+        
+        .intro-text {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            text-align: center;
+        }
+        
+        /* New startup image container */
+        .startup-image-container {
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2rem 0;
+        }
+        
+        .startup-image {
+            max-width: 100%;
+            max-height: 500px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(92, 48, 125, 0.2);
+            border: 3px solid var(--primary-light);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .startup-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 40px rgba(92, 48, 125, 0.3);
+        }
+        
+        .startup-caption {
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+        
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px var(--shadow);
+            padding: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 20px var(--shadow);
+        }
+        
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .card p {
+            flex-grow: 1;
+            font-size: 0.95rem;
+        }
+        
+        .card-icon {
+            font-size: 2.3rem;
+            color: var(--primary);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--gradient);
+            color: var(--white);
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 8px var(--shadow);
+            margin-top: 1.2rem;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px var(--shadow);
+        }
+        
+        .btn-red {
+            background: var(--gradient);
+            box-shadow: 0 4px 8px var(--shadow);
+        }
+        
+        .btn-red:hover {
+            box-shadow: 0 6px 12px var(--shadow);
+        }
+        
+        /* Enhanced survey button styles */
+        .btn-highlight {
+            background: linear-gradient(135deg, #FF6B6B, #C44569);
+            color: var(--white);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+            font-size: 1.1rem;
+            padding: 1rem 2.5rem;
+            position: relative;
+            overflow: hidden;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+            }
+            50% {
+                box-shadow: 0 8px 30px rgba(255, 107, 107, 0.6);
+            }
+            100% {
+                box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+            }
+        }
+        
+        .btn-highlight:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-highlight:hover {
+            background: linear-gradient(135deg, #FF7E7E, #D45872);
+            box-shadow: 0 10px 35px rgba(255, 107, 107, 0.5);
+            transform: translateY(-3px) scale(1.05);
+        }
+        
+        .btn-highlight:hover:before {
+            left: 100%;
+        }
+        
+        .feature-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .feature {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px var(--shadow);
+            padding: 2rem;
+            transition: transform 0.3s;
+            display: flex;
+            align-items: flex-start;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature:nth-child(1), .feature:nth-child(4) {
+            grid-column: span 2;
+            padding: 2.5rem;
+        }
+        
+        .feature {
+            border-left: 4px solid var(--primary);
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-content {
+            flex: 1;
+        }
+        
+        .feature h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--white);
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            margin-right: 1.5rem;
+            box-shadow: 0 4px 10px var(--shadow);
+            flex-shrink: 0;
+            background: var(--primary);
+        }
+        
+        .demo-section {
+            background-color: var(--dark-bg);
+            margin: 4rem -3rem;
+            padding: 3rem;
+            color: var(--text-on-dark);
+            border-radius: 0;
+            border-top: 5px solid var(--primary-light);
+            border-bottom: 5px solid var(--primary-light);
+        }
+        
+        .demo-section h2 {
+            color: var(--text-on-dark);
+            border-bottom-color: var(--accent);
+        }
+        
+        .gif-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .gif-container video, .gif-container img {
+            width: 100%;
+            max-width: 850px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            margin: 1.5rem 0;
+            border: 3px solid var(--accent-light);
+        }
+        
+        /* Updated image gallery with captions */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .gallery-item {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 3px solid var(--accent);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.03);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(45, 32, 71, 0.8);
+            color: var(--white);
+            padding: 8px 12px;
+            font-size: 0.85rem;
+            text-align: center;
+            border-bottom-left-radius: 7px;
+            border-bottom-right-radius: 7px;
+            transition: background-color 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            background: rgba(92, 48, 125, 0.9);
+        }
+        
+        .applications-list {
+            margin-left: 1.5rem;
+            margin-bottom: 2rem;
+            list-style-type: none;
+        }
+        
+        .applications-list li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.5rem;
+            color: var(--text-light);
+        }
+        
+        .applications-list li:before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+        
+        /* Application citation styling */
+        .citation-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            margin-left: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .citation-link i {
+            margin-left: 4px;
+            font-size: 0.75rem;
+        }
+        
+        .citation-link:hover {
+            color: var(--accent-dark);
+        }
+        
+        .image-popup, .article-popup {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+        
+        .image-popup.active, .article-popup.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .popup-content {
+            position: relative;
+            max-width: 80%;
+            max-height: 80%;
+            margin: auto;
+            padding: 20px;
+            animation: zoom 0.3s;
+        }
+        
+        .popup-content img {
+            max-width: 100%;
+            max-height: 80vh;
+            display: block;
+            border: 3px solid var(--white);
+            border-radius: 5px;
+        }
+        
+        .article-content {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 80%;
+            overflow-y: auto;
+        }
+        
+        .article-content h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--primary-light);
+            padding-bottom: 0.5rem;
+        }
+        
+        .close-popup {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            color: var(--white);
+            cursor: pointer;
+            z-index: 1002;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+        
+        .close-popup:hover {
+            background: var(--primary);
+        }
+        
+        @keyframes zoom {
+            from {transform: scale(0.8); opacity: 0;}
+            to {transform: scale(1); opacity: 1;}
+        }
+        
+        .contact-section {
+            background-color: var(--secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 2rem;
+            border: 1px solid var(--primary-light);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .contact-section h2 {
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        
+        .contact-section p {
+            font-size: 0.95rem;
+            margin-bottom: 0.7rem;
+        }
+        
+        .contact-section a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-section a:hover {
+            color: var(--accent);
+        }
+        
+        .release-notice {
+            background: var(--accent-light);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-weight: 500;
+        }
+        
+        footer {
+            background-color: var(--darker-bg);
+            color: var(--text-on-dark);
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+            border-top: 5px solid var(--primary);
+        }
+        
+        .footer-content {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        
+        .footer-column {
+            flex: 1 1 250px;
+            text-align: left;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent-light);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-light);
+        }
+        
+        .footer-column p {
+            color: rgba(232, 228, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column a {
+            color: rgba(232, 228, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .footer-column a i {
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+        
+        .footer-column a:hover {
+            color: var(--white);
+        }
+        
+        .footer-column a:hover i {
+            color: var(--primary-light);
+        }
+        
+        .social-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            justify-content: center;
+        }
+        
+        .social-icons a {
+            color: var(--text-on-dark);
+            font-size: 1.2rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .social-icons a span {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-5px);
+            background-color: var(--primary);
+        }
+        
+        .social-icons a:hover span {
+            opacity: 1;
+        }
+        
+        .copyright {
+            width: 100%;
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(232, 228, 255, 0.7);
+        }
+        
+        .decoration {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 0;
+        }
+        
+        .decoration-1 {
+            width: 150px;
+            height: 150px;
+            top: -50px;
+            left: 10%;
+        }
+        
+        .decoration-2 {
+            width: 80px;
+            height: 80px;
+            bottom: 30px;
+            right: 20%;
+        }
+        
+        .purple-dot {
+            position: absolute;
+            background-color: var(--primary);
+            border-radius: 50%;
+            opacity: 0.2;
+        }
+        
+        .purple-dot-1 {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            right: 10%;
+        }
+        
+        .purple-dot-2 {
+            width: 60px;
+            height: 60px;
+            bottom: 15%;
+            left: 5%;
+        }
+        
+        /* Modal styles for WeChat popup */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal-content {
+            background-color: var(--white);
+            margin: 15% auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+            animation: modalopen 0.4s;
+        }
+        
+        @keyframes modalopen {
+            from {opacity: 0; transform: translateY(-20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: var(--primary);
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .modal h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .wechat-id {
+            font-size: 1.1rem;
+            padding: 10px;
+            background-color: var(--secondary);
+            border-radius: 8px;
+            margin: 15px 0;
+            display: inline-block;
+            font-weight: 500;
+            color: var(--text);
+        }
+        
+        /* Language selection modal */
+        .language-modal {
+            display: block; /* Start visible */
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .language-modal-content {
+            background-color: var(--white);
+            margin: 15% auto;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            text-align: center;
+            animation: modalopen 0.5s;
+        }
+        
+        .language-option {
+            display: block;
+            width: 80%;
+            margin: 15px auto;
+            padding: 15px;
+            background: var(--accent-gradient);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px var(--shadow);
+        }
+        
+        .language-option:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px var(--shadow);
+        }
+        
+        /* New styles for artifact assistance section */
+        .artifact-section {
+            background-color: var(--dark-bg);
+            margin: 4rem -3rem;
+            padding: 3rem;
+            color: var(--text-on-dark);
+            border-radius: 0;
+            border-top: 5px solid var(--primary-light);
+            border-bottom: 5px solid var(--primary-light);
+        }
+        
+        .artifact-section h2 {
+            color: var(--text-on-dark);
+            border-bottom-color: var(--accent);
+        }
+        
+        .artifact-section .btn {
+            background: var(--accent-gradient);
+            margin-top: 2rem;
+        }
+        
+        .artifact-section p {
+            color: var(--text-on-dark);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 1rem;
+        }
+        
+        /* Survey modal */
+        .survey-modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .survey-modal-content {
+            background-color: var(--white);
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            text-align: center;
+            animation: modalopen 0.4s;
+        }
+        
+        @media (max-width: 768px) {
+            .survey-modal-content {
+                margin: 10% auto;
+                padding: 20px;
+                max-width: 90%;
+            }
+            
+            .modal-content {
+                padding: 20px;
+                max-width: 90%;
+                margin: 10% auto;
+            }
+            
+            .upload-modal-content {
+                margin: 10% auto;
+                padding: 20px;
+                max-width: 90%;
+            }
+        }
+        
+        /* Upload modal */
+        .upload-modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .upload-modal-content {
+            background-color: var(--white);
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            max-width: 700px;
+            max-height: 80vh;
+            overflow-y: auto;
+            animation: modalopen 0.4s;
+        }
+        
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            display: block;
+            border: 3px solid var(--primary-light);
+            border-radius: 10px;
+            padding: 10px;
+            background: var(--white);
+        }
+        
+        .upload-link {
+            color: var(--primary);
+            font-weight: 600;
+            word-break: break-all;
+            display: block;
+            margin: 20px 0;
+            padding: 15px;
+            background: var(--secondary);
+            border-radius: 8px;
+        }
+        
+        .disclaimer {
+            text-align: left;
+            background: var(--secondary);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .disclaimer ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .disclaimer li {
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        /* New download modal styles */
+        .download-modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .download-modal-content {
+            background-color: var(--white);
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            text-align: center;
+            animation: modalopen 0.4s;
+        }
+
+        .download-link {
+            color: var(--primary);
+            font-weight: 600;
+            word-break: break-all;
+            display: block;
+            margin: 20px 0;
+            padding: 15px;
+            background: var(--secondary);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .download-link:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* GitHub modal styles */
+        .github-modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .github-modal-content {
+            background-color: var(--white);
+            margin: 15% auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            text-align: center;
+            animation: modalopen 0.4s;
+        }
+
+        /* Documentation modal styles */
+        .docs-modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .docs-modal-content {
+            background-color: var(--white);
+            margin: 15% auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            text-align: center;
+            animation: modalopen 0.4s;
+        }
+
+        /* NNSR Online access modal */
+        .online-modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .online-modal-content {
+            background-color: var(--white);
+            margin: 12% auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            max-width: 560px;
+            text-align: center;
+            animation: modalopen 0.4s;
+        }
+
+        .online-note {
+            text-align: left;
+            background: var(--secondary);
+            border-radius: 10px;
+            padding: 18px;
+            margin: 20px 0;
+        }
+
+        .online-note p {
+            margin-bottom: 0.6rem;
+        }
+
+        /* Tutorial maintenance modal */
+        .tutorial-modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .tutorial-modal-content {
+            background-color: var(--white);
+            margin: 15% auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            text-align: center;
+            animation: modalopen 0.4s;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            header {
+                padding: 2.5rem 0;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+                line-height: 1.3;
+            }
+            
+            header p {
+                font-size: 1rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .container {
+                padding: 1.5rem;
+                margin: 1.5rem auto;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links a {
+                padding: 0.8rem 2rem;
+                font-size: 0.95rem;
+            }
+            
+            .demo-section, .artifact-section {
+                margin: 2rem -1.5rem;
+                padding: 1.5rem;
+            }
+            
+            .feature-container {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .feature {
+                padding: 1.5rem;
+            }
+            
+            .feature:nth-child(1), .feature:nth-child(4) {
+                grid-column: span 1;
+                padding: 1.5rem;
+            }
+            
+            .feature h3 {
+                font-size: 1.1rem;
+            }
+            
+            .feature p {
+                font-size: 0.9rem;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+            
+            .card h3 {
+                font-size: 1.1rem;
+            }
+            
+            .card p {
+                font-size: 0.85rem;
+            }
+            
+            .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.95rem;
+            }
+            
+            .btn-highlight {
+                font-size: 1rem;
+                padding: 0.9rem 2rem;
+            }
+            
+            .contact-section {
+                padding: 1.2rem;
+            }
+            
+            .release-notice {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+            
+            .nav-logo {
+                flex-wrap: wrap;
+            }
+            
+            .nav-logo-text {
+                font-size: 1rem;
+            }
+            
+            .logo-img {
+                height: 25px;
+                margin-right: 5px;
+            }
+            
+            .footer-content {
+                gap: 1.5rem;
+            }
+            
+            .footer-column {
+                text-align: center;
+            }
+            
+            .image-gallery {
+                gap: 1rem;
+            }
+            
+            .gallery-item img {
+                height: 150px;
+            }
+            
+            section {
+                margin-bottom: 2.5rem;
+            }
+            
+            p {
+                font-size: 0.9rem;
+            }
+            
+            .intro-text {
+                font-size: 0.95rem;
+            }
+            
+            .feature-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.5rem;
+                margin-right: 1rem;
+            }
+            
+            .card-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.8rem;
+            }
+            
+            .startup-image-container {
+                margin: 2rem 0;
+                padding: 1rem 0;
+            }
+            
+            .startup-image {
+                max-height: 300px;
+            }
+        }
+        .hero-actions { position:relative; }
+        .hero-actions .btn { background:var(--white); color:var(--primary-dark); }
+        #resources .card-container { grid-template-columns:repeat(2,minmax(0,1fr)); }
+        .access-links { display:flex; flex-wrap:wrap; gap:.6rem 1rem; align-items:center; }
+        .access-links .btn { margin:0; }
+        .access-links a:not(.btn) { color:var(--primary-dark); text-underline-offset:.2em; }
+        [id] { scroll-margin-top:7rem; }
+        .language-switch { white-space:nowrap; }
+        a:focus-visible, button:focus-visible { outline:3px solid #ba811c; outline-offset:3px; }
+        @media(max-width:768px) {
+            #resources .card-container { grid-template-columns:1fr; }
+            .nav-logo-text { display:none; }
+            .mobile-toggle { border:0; background:transparent; padding:.5rem; }
+        }
+        @media(min-width:769px) and (max-width:1100px) { .nav-logo-text { display:none; } }
+        .history-grid { display:grid; grid-template-columns:minmax(0, .85fr) minmax(0, 1.15fr); gap:1.5rem; }
+        .history-grid ol,.history-grid ul { list-style:none; padding:0; }
+        .history-grid li { margin-bottom:1rem; line-height:1.55; }
+        .history-grid ol li { border-left:3px solid var(--accent-light); padding-left:1rem; }
+        .history-grid a { color:var(--primary-dark); text-underline-offset:.18em; }
+        @media(max-width:768px) { .history-grid { grid-template-columns:minmax(0,1fr); } }
+    </style>
 </head>
 <body>
-  <main>
+    
+    <!-- Image Popup Modal -->
+    <div id="imagePopup" class="image-popup">
+        <span class="close-popup" onclick="closeImagePopup()">&times;</span>
+        <div class="popup-content">
+            <img id="popupImage" alt="Pic/FIG6.jpg">
+        </div>
+    </div>
+    
+    <!-- Article Popup Modal -->
+    <div id="articlePopup" class="article-popup">
+        <span class="close-popup" onclick="closeArticlePopup()">&times;</span>
+        <div class="article-content" id="articleContent">
+            <!-- Article content will be inserted here -->
+        </div>
+    </div>
+    
+    <!-- WeChat Modal -->
+    <div id="wechatModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('wechatModal')">&times;</span>
+            <h3 class="modal-title chinese">微信公众号</h3>
+            <h3 class="modal-title english" style="display:none;">WeChat Official Account</h3>
+            <div class="wechat-id chinese">搜索：神经调控国家工程研究中心</div>
+            <div class="wechat-id english" style="display:none;">Search: 神经调控国家工程研究中心</div>
+        </div>
+    </div>
+    
+    
+    <!-- Survey Modal -->
+    <div id="surveyModal" class="survey-modal">
+        <div class="survey-modal-content">
+            <span class="close-modal" onclick="closeModal('surveyModal')">&times;</span>
+            <h3 class="modal-title chinese">填写问卷</h3>
+            <h3 class="modal-title english" style="display:none;">Fill Survey</h3>
+            <p class="chinese">如需合作/帮助可以填写问卷以获得最新版本支持</p>
+            <p class="english" style="display:none;">For collaboration/assistance, please fill out the survey to get latest version support</p>
+            
+            <div style="margin: 2rem 0;">
+                <p style="margin-bottom: 1rem;">
+                    <span class="chinese">主要问卷地址：</span>
+                    <span class="english" style="display:none;">Main survey link:</span>
+                </p>
+                <a href="https://wenjuan.tsinghua.edu.cn/s/f6vuaa/" target="_blank" style="display: block; color: var(--primary); padding: 1rem; background: var(--secondary); border-radius: 8px; text-decoration: none; margin-bottom: 1.5rem; transition: all 0.3s; word-break: break-all;" onmouseover="this.style.backgroundColor='var(--primary)'; this.style.color='var(--white)';" onmouseout="this.style.backgroundColor='var(--secondary)'; this.style.color='var(--primary)';">
+                    <i class="fa-solid fa-external-link-alt"></i> https://wenjuan.tsinghua.edu.cn/s/f6vuaa/
+                </a>
+                
+            </div>
+        </div>
+    </div>
+    
+    <!-- Upload Modal -->
+    <div id="uploadModal" class="upload-modal">
+        <div class="upload-modal-content">
+            <span class="close-modal" onclick="closeModal('uploadModal')">&times;</span>
+            <h3 class="modal-title chinese">伪迹数据上传</h3>
+            <h3 class="modal-title english" style="display:none;">Artifact Data Upload</h3>
+            
+            <p class="chinese">请访问以下链接上传数据：</p>
+            <p class="english" style="display:none;">Please visit the following link to upload data:</p>
+            
+            <a href="https://cloud.tsinghua.edu.cn/u/d/92659e9298f24294907e/" target="_blank" class="upload-link">
+                https://cloud.tsinghua.edu.cn/u/d/92659e9298f24294907e/
+            </a>
+            
+            <img src="Pic/Upload_pic.png" alt="QR Code" class="qr-code" id="uploadQRCode">
+            
+            <div class="disclaimer">
+                <h4 class="chinese">上传说明：</h4>
+                <h4 class="english" style="display:none;">Upload Instructions:</h4>
+                <ol class="chinese">
+                    <li>请上传包含伪迹的DBS-LFP原始数据压缩文件，并建议附带TXT文档说明问题和您的联系方式</li>
+                    <li>我们将可能协助您解决数据处理中的问题</li>
+                    <li>您的数据将用于改进该开放系统的伪迹处理算法</li>
+                    <li>我们承诺严格保护数据隐私，不用于其他任何用途</li>
+                    <li>成功上传文件将默认您知晓以上内容</li>
+                </ol>
+                <ol class="english" style="display:none;">
+                    <li>Please upload a compressed file of the raw DBS-LFP data containing artifacts, and we recommend attaching a TXT document explaining the issue and your contact information.</li>
+                    <li>We may assist you in resolving issues during data processing</li>
+                    <li>Your data will be used to improve the artifact processing algorithm of this open system</li>
+                    <li>We are committed to strictly protecting data privacy and will not use it for any other purposes</li>
+                    <li>By successfully uploading the file, you acknowledge the above content</li>
+                </ol>
+                <p class="chinese"><strong>感谢您的支持与信任！</strong></p>
+                <p class="english" style="display:none;"><strong>Thank you for your support and trust!</strong></p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigation bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <!-- Added both logos to the navbar -->
+                <img src="Pic/NERCN_LOGO.png" alt="Lab Logo" class="logo-img">
+                <img src="Pic/NNSR_LOGO.jpg" alt="NNSR Logo" class="logo-img">
+                <div class="nav-logo-text">
+                    <span class="chinese">NERCN NeuroSignal Research (NNSR)</span>
+                    <span class="english" style="display:none;">NERCN NeuroSignal Research (NNSR)</span>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="#features" class="chinese">功能</a>
+                <a href="#features" class="english" style="display:none;">Features</a>
+                <a href="#demo" class="chinese">演示</a>
+                <a href="#demo" class="english" style="display:none;">Demo</a>
+                <a href="#resources" class="chinese">资源</a>
+                <a href="#resources" class="english" style="display:none;">Resources</a>
+                <a href="#artifact" class="chinese">数据协助</a>
+                <a href="#artifact" class="english" style="display:none;">Data Assist</a>
+                <a href="#applications" class="chinese">应用</a>
+                <a href="#applications" class="english" style="display:none;">Applications</a>
+                <a href="#contact" class="chinese">联系</a>
+                <a href="#contact" class="english" style="display:none;">Contact</a>
+            </div>
+            <button class="language-switch" onclick="toggleLanguage()">
+                <span class="chinese">English</span>
+                <span class="english" style="display:none;">中文</span>
+            </button>
+            <button type="button" class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu / 菜单"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </nav>
+    
+    <!-- Header section -->
     <header>
-      <h1>NNSR</h1>
-      <p lang="en">NERCN NeuroSignal Research</p>
-      <p>面向脑深部电刺激研究的神经信号处理与分析平台。</p>
+        <div class="decoration decoration-1"></div>
+        <div class="decoration decoration-2"></div>
+        <div class="purple-dot purple-dot-1"></div>
+        <div class="purple-dot purple-dot-2"></div>
+        <div data-aos="fade-up">
+            <h1 class="chinese">NERCN NeuroSignal Research (NNSR) 平台</h1>
+            <h1 class="english" style="display:none;">NERCN NeuroSignal Research (NNSR)</h1>
+            <p class="chinese" data-aos="fade-up" data-aos-delay="200">深部脑信号处理与分析平台</p>
+            <p class="english" style="display:none;" data-aos="fade-up" data-aos-delay="200">Deep Brain Signal Processing & Analysis Platform</p>
+            <div class="hero-actions">
+                <a class="btn" href="#history"><span class="chinese">历程与发表</span><span class="english" style="display:none">History &amp; publications</span></a>
+                <a class="btn" href="#resources"><span class="chinese">资源与下载 ↓</span><span class="english" style="display:none">Resources &amp; downloads ↓</span></a>
+            </div>
+        </div>
     </header>
-    <dl>
-      <dt>项目官网</dt>
-      <dd><a href="https://nnsr.guan-lx.cn/">nnsr.guan-lx.cn</a></dd>
-      <dt>在线分析 · NNSR Cloud</dt>
-      <dd><a href="https://nnsr.cpolar.cn/">线路一</a><a href="https://nnsr.guan-lx.cn/app/">线路二</a></dd>
-      <dt>工具箱与文档</dt>
-      <dd>
-        <a href="https://cloud.tsinghua.edu.cn/d/e372b5967d084d7e9dd2/">下载安装包</a>
-        <a href="https://nnsr-tutorial.readthedocs.io/en/latest/">使用说明书</a>
-        <a href="https://github.com/NERCN/NNSR_TOOLBOX">MATLAB 源码</a>
-      </dd>
-    </dl>
-  </main>
+    
+    <div class="container" data-aos="fade-up">
+        <section>
+            <p class="intro-text chinese">NNSR专为处理和分析神经信号而设计，提供全面的工具集，助力深部脑刺激及神经科学研究突破。</p>
+            <p class="intro-text english" style="display:none;">NNSR is designed for processing and analyzing neural signals, offering comprehensive tools for deep brain stimulation and breakthroughs in neuroscience research.</p>
+            
+            <!-- New startup image container -->
+            <div class="startup-image-container" data-aos="zoom-in" data-aos-delay="300">
+                <img src="Pic/FIG5.jpg" alt="NNSR Startup Interface" class="startup-image" id="startupImage">
+                <p class="startup-caption chinese">NNSR 启动界面</p>
+                <p class="startup-caption english" style="display:none;">NNSR Startup Interface</p>
+            </div>
+        </section>
+        
+        <section id="features">
+            <h2 class="chinese" data-aos="fade-up">核心功能</h2>
+            <h2 class="english" style="display:none;" data-aos="fade-up">Key Features</h2>
+            
+            <!-- Optimized feature layout -->
+            <div class="feature-container">
+                <div class="feature" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon"><i class="fa-solid fa-brain"></i></div>
+                    <div class="feature-content">
+                        <h3 class="chinese">深脑部信号自动分析</h3>
+                        <h3 class="english" style="display:none;">Intelligent Signal Processing</h3>
+                        <p class="chinese">通过深度学习伪迹识别算法，辅助噪声识别与异常信号处理，提升数据可靠性。</p>
+                        <p class="english" style="display:none;">Using deep learning artifact recognition algorithms to assist in noise detection and anomaly processing, enhancing data reliability.</p>
+                    </div>
+                </div>
+                <div class="feature" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <div class="feature-content">
+                        <h3 class="chinese">可视化功能</h3>
+                        <h3 class="english" style="display:none;">Visualization Features</h3>
+                        <p class="chinese">直观呈现复杂神经动态模式，支持时间、频率和时频分析。多维度可视化工具助您深入解析神经信号特征。</p>
+                        <p class="english" style="display:none;">Intuitive representation of complex neural dynamics, supporting time, frequency and time-frequency analyses. Multi-dimensional visualization tools help you deeply analyze neural signal characteristics.</p>
+                    </div>
+                </div>
+                <div class="feature" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <div class="feature-content">
+                        <h3 class="chinese">深脑数据的实时处理</h3>
+                        <h3 class="english" style="display:none;">Real-time Processing</h3>
+                        <p class="chinese">基于安全协议的实时信号处理系统，支持在线分析和特征提取，满足实时监测与研究需求。</p>
+                        <p class="english" style="display:none;">A real-time signal processing system based on security protocols, supporting online analysis and feature extraction to meet real-time monitoring and research needs.</p>
+                    </div>
+                </div>
+                <div class="feature" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon"><i class="fa-solid fa-code-branch"></i></div>
+                    <div class="feature-content">
+                        <h3 class="chinese">开放的体外闭环研究平台</h3>
+                        <h3 class="english" style="display:none;">Closed-Loop Research Platform</h3>
+                        <p class="chinese">支持复杂的刺激-响应研究，实现交互式神经调节与定制控制机制，为神经调控研究提供便捷解决方案。</p>
+                        <p class="english" style="display:none;">Supports complex stimulus-response studies, enabling interactive neuroregulation and custom control mechanisms, providing convenient solutions for neuroregulation research.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="demo" class="demo-section">
+            <h2 class="chinese" data-aos="fade-up">系统演示</h2>
+            <h2 class="english" style="display:none;" data-aos="fade-up">Software Demo</h2>
+            
+            <div class="gif-container" data-aos="fade-up">
+                <video id="demoVideo" controls preload="none" playsinline poster="Pic/FIG3.jpg">
+                    <source src="Pic/online-analysis.mp4" type="video/mp4">
+                </video>
+                <p class="chinese">NNSR界面展示</p>
+                <p class="english" style="display:none;">NNSR interface</p>
+            </div>
+            
+            <h2 class="chinese" data-aos="fade-up">界面示例(点击播放)</h2>
+            <h2 class="english" style="display:none;" data-aos="fade-up">Interface Example (Click to Play)</h2>
+            
+            <!-- Updated image gallery with captions and video triggers -->
+            <div class="image-gallery" data-aos="fade-up">
+                <div class="gallery-item" onclick="playVideo('online-analysis.mp4')">
+                    <img loading="lazy" src="Pic/FIG3.jpg" alt="Online Analysis" />
+                    <div class="gallery-caption chinese">在线分析</div>
+                    <div class="gallery-caption english" style="display:none;">Online Analysis</div>
+                </div>
+                <div class="gallery-item" onclick="playVideo('closed-loop.mp4')">
+                    <img loading="lazy" src="Pic/FIG2.jpg" alt="Closed-Loop Research" />
+                    <div class="gallery-caption chinese">闭环研究</div>
+                    <div class="gallery-caption english" style="display:none;">Closed-Loop Research</div>
+                </div>
+                <div class="gallery-item" onclick="playVideo('automated-processing.mp4')">
+                    <img loading="lazy" src="Pic/FIG1.jpg" alt="Automated Processing" />
+                    <div class="gallery-caption chinese">自动处理</div>
+                    <div class="gallery-caption english" style="display:none;">Automated Processing</div>
+                </div>
+                <div class="gallery-item" onclick="playVideo('manual-processing.mp4')">
+                    <img loading="lazy" src="Pic/FIG4.jpg" alt="Manual Processing" />
+                    <div class="gallery-caption chinese">手动处理</div>
+                    <div class="gallery-caption english" style="display:none;">Manual Processing</div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section id="resources" aria-labelledby="access-title">
+            <h2 id="access-title"><span class="chinese">资源与下载</span><span class="english" style="display:none">Resources &amp; downloads</span></h2>
+            <div class="card-container">
+                <article class="card" id="cloud">
+                    <div class="card-icon" aria-hidden="true"><i class="fa-solid fa-globe"></i></div>
+                    <h3>NNSR Cloud</h3>
+                    <p><span class="chinese">通过浏览器使用 NNSR。两条线路共用账号，任选其一即可登录。</span><span class="english" style="display:none">Use NNSR in your browser. Both regional gateways connect to the same service and accept the same account.</span></p>
+                    <div class="access-links"><a class="btn" href="https://nnsr.cpolar.cn/"><span class="chinese">线路一</span><span class="english" style="display:none">Route 1</span></a>
+                        <a class="btn" href="https://nnsr.guan-lx.cn/app/"><span class="chinese">线路二</span><span class="english" style="display:none">Route 2</span></a>
+                        <a href="mailto:guanlx18@tsinghua.org.cn?subject=NNSR%20Cloud%20access"><span class="chinese">申请访问权限</span><span class="english" style="display:none">Request access</span></a></div>
+                </article>
+                <article class="card" id="download">
+                    <div class="card-icon" aria-hidden="true"><i class="fa-solid fa-download"></i></div>
+                    <h3><span class="chinese">桌面工具箱</span><span class="english" style="display:none">Desktop toolbox</span></h3>
+                    <p><span class="chinese">从清华云盘选择安装包，在本地处理信号。安装前请核对系统和运行环境要求。</span><span class="english" style="display:none">Choose the installer for your system from Tsinghua Cloud and process signals locally. Check the installation requirements before downloading.</span></p>
+                    <div class="access-links"><a class="btn" href="https://cloud.tsinghua.edu.cn/d/e372b5967d084d7e9dd2/"><span class="chinese">打开安装包目录</span><span class="english" style="display:none">Browse installers</span></a>
+                        <a href="https://nnsr-tutorial.readthedocs.io/en/latest/installation/"><span class="chinese">安装指南</span><span class="english" style="display:none">Installation guide</span></a></div>
+                </article>
+                <article class="card" id="toolbox">
+                    <div class="card-icon" aria-hidden="true"><i class="fa-brands fa-github"></i></div>
+                    <h3>MATLAB Toolbox</h3>
+                    <p><span class="chinese">获取 MATLAB 源代码，根据研究需要调整分析流程。</span><span class="english" style="display:none">Access the MATLAB source and adapt the analysis workflow to your research.</span></p>
+                    <div class="access-links"><a class="btn" href="https://github.com/NERCN/NNSR_TOOLBOX"><span class="chinese">查看源代码</span><span class="english" style="display:none">View source code</span></a>
+                    </div>
+                </article>
+                <article class="card" aria-labelledby="manual-title">
+                    <div class="card-icon" aria-hidden="true"><i class="fa-solid fa-book"></i></div>
+                    <h3 id="manual-title"><span class="chinese">工具箱使用说明书</span><span class="english" style="display:none">Toolbox user manual (Chinese)</span></h3>
+                    <p><span class="chinese">按分析任务查阅操作步骤，或从目录浏览完整说明书。</span><span class="english" style="display:none">Browse the manual or go directly to a workflow.</span></p>
+                    <div class="access-links">
+                        <a class="btn" href="https://nnsr-tutorial.readthedocs.io/en/latest/"><span class="chinese">说明书目录</span><span class="english" style="display:none">Contents</span></a>
+                        <a href="https://nnsr-tutorial.readthedocs.io/en/latest/offline-analysis/"><span class="chinese">离线数据分析</span><span class="english" style="display:none">Offline analysis</span></a>
+                        <a href="https://nnsr-tutorial.readthedocs.io/en/latest/online-analysis/"><span class="chinese">实时采集与闭环分析</span><span class="english" style="display:none">Real-time acquisition and closed-loop analysis</span></a>
+                        <a href="https://nnsr-tutorial.readthedocs.io/en/latest/faq/"><span class="chinese">常见问题</span><span class="english" style="display:none">Troubleshooting</span></a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- New Artifact Assistance Section -->
+        <section id="artifact" class="artifact-section">
+            <h2 class="chinese" data-aos="fade-up">数据协助</h2>
+            <h2 class="english" style="display:none;" data-aos="fade-up">Data Assistance</h2>
+            
+            <p class="chinese" data-aos="fade-up">如果您在分析中遇到难以处理的伪迹数据，欢迎上传以协助我们优化算法。请在文件中包含您的联系方式，我们将尽可能帮助您解决问题。</p>
+            <p class="english" style="display:none;" data-aos="fade-up">If you encounter difficult-to-process artifact data in your analysis, please upload to help us optimize our algorithms. Include your contact information in the file, and we will do our best to help solve your problems.</p>
+            
+            <center>
+                <a href="#" onclick="openUploadModal(); return false;" class="btn" data-aos="fade-up">
+                    <i class="fa-solid fa-upload"></i> 
+                    <span class="chinese">上传数据</span>
+                    <span class="english" style="display:none;">Upload Data</span>
+                </a>
+            </center>
+        </section>
+        
+        <section id="applications">
+            <h2 class="chinese" data-aos="fade-up">应用案例</h2>
+            <h2 class="english" style="display:none;" data-aos="fade-up">Applications</h2>
+            
+            <ul class="applications-list" data-aos="fade-up">
+                <!-- Added citation link -->
+                <li class="chinese">处理神经精神疾病DBS-LFP信号
+                  <a href="#" class="citation-link" onclick="showArticle('dbs-article')">参考文献 <i class="fas fa-external-link-alt"></i></a>
+                </li>
+                <li class="english" style="display:none;">Processing DBS-LFP signals in neuropsychiatric diseases
+                    <a href="#" class="citation-link" onclick="showArticle('dbs-article')">Citation <i class="fas fa-external-link-alt"></i></a>
+                </li>
+                
+                <!-- Added popup image link -->
+                <li class="chinese">监测药物波动期间的神经活动变化
+                    <a href="#" class="citation-link" onclick="showImage('Pic/FIG6.jpg')">查看图表 <i class="fas fa-image"></i></a>
+                </li>
+                <li class="english" style="display:none;">Monitoring neural activity during medication fluctuations
+                    <a href="#" class="fa-image" onclick="showImage('Pic/FIG6.jpg')">View Chart <i class="fas fa-image"></i></a>
+                </li>
+                
+                <li class="chinese">实时神经反馈用于闭环DBS研究</li>
+                <li class="english" style="display:none;">Real-time neural feedback for closed-loop DBS research</li>
+                
+                <li class="chinese">支持个性化神经调节治疗开发</li>
+                <li class="english" style="display:none;">Supporting personalized neuromodulation therapy development</li>
+                
+                <!-- Added new item with article link -->
+                <li class="chinese">支持实时脑机接口研究
+                    <a href="#" class="citation-link" onclick="showArticle('bci-article')">相关研究 <i class="fas fa-external-link-alt"></i></a>
+                </li>
+                <li class="english" style="display:none;">Supporting real-time Brain-Computer Interface research
+                    <a href="#" class="citation-link" onclick="showArticle('bci-article')">Related Research <i class="fas fa-external-link-alt"></i></a>
+                </li>
+            </ul>
+        </section>
+        
+        <section id="history" aria-labelledby="history-title">
+            <h2 id="history-title"><span class="chinese">发展历程与相关发表</span><span class="english" style="display:none">History and publications</span></h2>
+            <div class="history-grid">
+                <article class="card">
+                    <h3><span class="chinese">项目历程</span><span class="english" style="display:none">Project milestones</span></h3>
+                    <ol>
+                        <li><time datetime="2023-06">2023-06</time> · <strong>v0.1.0</strong><span class="chinese">首个正式版本，支持手动解析与可视化。</span><span class="english" style="display:none">First release with manual signal parsing and visualization.</span></li>
+                        <li><time datetime="2025-07">2025-07</time> · <strong>v0.2.0</strong><span class="chinese">加入深度学习伪迹识别与自动处理演示。</span><span class="english" style="display:none">Added a demo of deep-learning artifact detection and automated processing.</span></li>
+                        <li><time datetime="2026-11">2026-11</time> · <strong>NNSR Cloud</strong><span class="chinese">官网整合双线路访问、桌面下载与使用说明书。</span><span class="english" style="display:none">The project homepage brought together both Cloud access routes, desktop downloads and manuals.</span></li>
+                    </ol>
+                    <a href="https://github.com/NERCN/NNSR/blob/main/docs/support.md"><span class="chinese">查看工具箱版本记录</span><span class="english" style="display:none">Toolbox release history</span></a>
+                </article>
+                <article class="card">
+                    <h3><span class="chinese">团队相关发表</span><span class="english" style="display:none">Selected team publications</span></h3>
+                    <ul>
+                        <li><a href="https://doi.org/10.1002/mds.30091">Subthalamic γ Oscillation Underlying Rapid Eye Movement Sleep Abnormality in Parkinsonian Patients</a><br><small>Guan L, Yu H, Chen Y, et al. <i>Movement Disorders</i> (2025).</small></li>
+                        <li><a href="https://doi.org/10.1038/s44220-024-00286-2">Deep brain stimulation of habenula reduces depressive symptoms and modulates brain activities in treatment-resistant depression</a><br><small>Wang Z, Jiang C, Guan L, et al. <i>Nature Mental Health</i> (2024).</small></li>
+                        <li><a href="https://doi.org/10.1093/nsr/nwac099">Progress in the development of a fully implantable brain–computer interface: the potential of sensing-enabled neurostimulators</a><br><small>Chen Y, Zhang G, Guan L, et al. <i>National Science Review</i> (2022).</small></li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+        <section id="contact" class="contact-section">
+            <h2 class="chinese" data-aos="fade-up">联系我们</h2>
+            <h2 class="english" style="display:none;" data-aos="fade-up">Contact Us</h2>
+            
+            <p class="chinese" data-aos="fade-up">如需咨询、合作或技术支持，请联系作者：</p>
+            <p class="english" style="display:none;" data-aos="fade-up">For inquiries, collaboration or technical support, please contact the author:</p>
+            
+            <!-- Added email link -->
+            <p><a href="mailto:guanlx18@tsinghua.org.cn">guanlx18@tsinghua.org.cn</a></p>
+            
+            <div style="margin: 2rem 0;" data-aos="fade-up">
+                <a href="#" onclick="openSurveyModal(); return false;" class="btn btn-highlight">
+                    <i class="fa-solid fa-bell"></i> 
+                    <span class="chinese">如需合作/帮助可以填写问卷以获得最新版本支持</span>
+                    <span class="english" style="display:none;">For collaboration/assistance, fill survey to get latest version support</span>
+                </a>
+            </div>
+            
+            <!-- Lab introduction with link -->
+            <p class="chinese" data-aos="fade-up">访问我们的 <a href="https://www.hy.tsinghua.edu.cn/info/1110/2491.htm" target="_blank">实验室介绍</a> 了解更多</p>
+            <p class="english" style="display:none;" data-aos="fade-up">Visit our <a href="https://www.hy.tsinghua.edu.cn/info/1110/2491.htm" target="_blank">lab introduction</a> to learn more</p>
+            
+            <p class="chinese" style="margin-top: 1rem;" data-aos="fade-up">清华大学航天航空学院神经调控国家工程研究中心</p>
+            <p class="english" style="display:none; margin-top: 1rem;" data-aos="fade-up">National Engineering Research Center of Neuromodulation, School of Aerospace Engineering, Tsinghua University</p>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3 class="chinese">关于NNSR</h3>
+                <h3 class="english" style="display:none;">About NNSR</h3>
+                <p class="chinese">NNSR是一个公开的神经信号研究平台，专为脑深部电刺激和脑电信号研究设计，提供全方位的信号处理与分析工具。</p>
+                <p class="english" style="display:none;">NNSR is an open neural signal research platform designed for deep brain stimulation and neural signal research, offering comprehensive signal processing and analysis tools.</p>
+            </div>
+            <div class="footer-column">
+                <h3 class="chinese">快速链接</h3>
+                <h3 class="english" style="display:none;">Quick Links</h3>
+                <ul>
+                    <li><a href="#features" class="chinese"><i class="fa-solid fa-angle-right"></i>核心功能</a></li>
+                    <li><a href="#features" class="english" style="display:none;"><i class="fa-solid fa-angle-right"></i>Features</a></li>
+                    <li><a href="#demo" class="chinese"><i class="fa-solid fa-angle-right"></i>软件演示</a></li>
+                    <li><a href="#demo" class="english" style="display:none;"><i class="fa-solid fa-angle-right"></i>Demo</a></li>
+                    <li><a href="#resources" class="chinese"><i class="fa-solid fa-angle-right"></i>资源下载</a></li>
+                    <li><a href="#resources" class="english" style="display:none;"><i class="fa-solid fa-angle-right"></i>Resources</a></li>
+                    <li><a href="#artifact" class="chinese"><i class="fa-solid fa-angle-right"></i>数据协助</a></li>
+                    <li><a href="#artifact" class="english" style="display:none;"><i class="fa-solid fa-angle-right"></i>Data Assist</a></li>
+                    <li><a href="#applications" class="chinese"><i class="fa-solid fa-angle-right"></i>应用案例</a></li>
+                    <li><a href="#applications" class="english" style="display:none;"><i class="fa-solid fa-angle-right"></i>Applications</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="chinese">联系方式</h3>
+                <h3 class="english" style="display:none;">Contact Us</h3>
+                <div class="social-icons">
+                    <a href="mailto:guanlx18@tsinghua.org.cn">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span class="chinese">邮箱</span>
+                        <span class="english" style="display:none;">Email</span>
+                    </a>
+                    <a href="#" onclick="openWechatModal(); return false;">
+                        <i class="fa-brands fa-weixin"></i>
+                        <span class="chinese">微信</span>
+                        <span class="english" style="display:none;">WeChat</span>
+                    </a>
+                    <a href="https://github.com/NERCN/NNSR_TOOLBOX" target="_blank">
+                        <i class="fa-brands fa-github"></i>
+                        <span class="chinese">GitHub</span>
+                        <span class="english" style="display:none;">GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p class="chinese">&copy; 2025 NERCN NeuroSignal Research | 版权所有</p>
+            <p class="english" style="display:none;">&copy; 2025 NERCN NeuroSignal Research | All Rights Reserved</p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <script>
+        // Initialize AOS animation library
+        window.AOS?.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: true
+        });
+        
+        // Current language state
+        let currentLanguage = 'english'; // Default to English
+        
+        
+        // Set language function
+        function setLanguage(language) {
+            const chineseElements = document.querySelectorAll('.chinese');
+            const englishElements = document.querySelectorAll('.english');
+            
+            if (language === 'english') {
+                // Set to English
+                chineseElements.forEach(el => el.style.display = 'none');
+                englishElements.forEach(el => el.style.display = 'block');
+                currentLanguage = 'english';
+                document.documentElement.lang = 'en';
+            } else {
+                // Set to Chinese
+                chineseElements.forEach(el => el.style.display = 'block');
+                englishElements.forEach(el => el.style.display = 'none');
+                currentLanguage = 'chinese';
+                document.documentElement.lang = 'zh-CN';
+            }
+            
+            try { localStorage.setItem('nnsr-language', currentLanguage); } catch {}
+        }
+        
+        // Toggle language function
+        function toggleLanguage() {
+            if (currentLanguage === 'chinese') {
+                setLanguage('english');
+            } else {
+                setLanguage('chinese');
+            }
+        }
+        
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+        
+        // Generic modal close function
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+        
+        // Open WeChat modal
+        function openWechatModal() {
+            document.getElementById('wechatModal').style.display = 'block';
+        }
+        
+        
+        // Open Survey modal
+        function openSurveyModal() {
+            document.getElementById('surveyModal').style.display = 'block';
+        }
+        
+        // Open Upload modal
+        function openUploadModal() {
+            document.getElementById('uploadModal').style.display = 'block';
+            // Generate QR code (placeholder - replace with actual QR code generation)
+            generateQRCode();
+        }
+        
+        // Generate QR code function
+        function generateQRCode() {
+            // QR code image is already set in HTML as Pic/Upload_pic.png
+            const qrElement = document.getElementById('uploadQRCode');
+            qrElement.alt = 'QR Code for upload link';
+        }
+        
+        // Image popup functions
+        function showImage(imageSrc) {
+            const popup = document.getElementById('imagePopup');
+            const img = document.getElementById('popupImage');
+            img.src = imageSrc;
+            popup.classList.add('active');
+        }
+        
+        function closeImagePopup() {
+            const popup = document.getElementById('imagePopup');
+            popup.classList.remove('active');
+        }
+        
+        // Article popup functions
+        function showArticle(articleId) {
+            const popup = document.getElementById('articlePopup');
+            const content = document.getElementById('articleContent');
+            
+            // Define article content based on ID
+            let articleHTML = '';
+            
+            if (articleId === 'dbs-article') {
+                articleHTML = `
+                    <h3>${currentLanguage === 'chinese' ? 'DBS-LFP在神经精神疾病研究中的应用' : 'Application of DBS-LFP Signal Processing in Neuropsychiatric Research'}</h3>
+                    <p>${currentLanguage === 'chinese' ? 
+                      '这项研究利用NNSR平台处理来自DBS-LFP信号，识别了与症状相关的特定频带活动。' : 
+                      'This study utilized the NNSR platform to process DBS-LFP signals, successfully identifying specific frequency band activities associated with symptoms.'}</p>
+                    <p>${currentLanguage === 'chinese' ? 
+                      '引用: Wang, Z., Jiang, C., Guan, L. et al. Deep brain stimulation of habenula reduces depressive symptoms and modulates brain activities in treatment-resistant depression. Nat. Mental Health 2, 1045–1052 (2024). Guan L, Yu H, Chen Y, et al. Subthalamic γ Oscillation Underlying Rapid Eye Movement Sleep Abnormality in Parkinsonian Patients. Mov Disord. 2025;40(3):456-467.' : 
+                      'Citation: Wang, Z., Jiang, C., Guan, L. et al. Deep brain stimulation of habenula reduces depressive symptoms and modulates brain activities in treatment-resistant depression. Nat. Mental Health 2, 1045–1052 (2024). Guan L, Yu H, Chen Y, et al. Subthalamic γ Oscillation Underlying Rapid Eye Movement Sleep Abnormality in Parkinsonian Patients. Mov Disord. 2025;40(3):456-467.'}</p>
+                `;
+            } else if (articleId === 'bci-article') {
+                articleHTML = `
+                    <h3>${currentLanguage === 'chinese' ? 'NNSR在实时脑机接口研究中的应用' : 'Application of NNSR in Real-time Brain-Computer Interface Research'}</h3>
+                    <p>${currentLanguage === 'chinese' ? 
+                      'NNSR平台的低延迟信号处理能力使其成为开发实时脑机接口的理想工具。研究团队利用NNSR的在线分析和特征提取功能，开发了一个能够在毫秒级延迟解码运动意图的BCI系统。' : 
+                      'The low-latency signal processing capabilities of the NNSR platform make it an ideal tool for developing real-time brain-computer interfaces. The research team utilized NNSR\'s online analysis and feature extraction functions to develop a BCI system capable of decoding motor intentions within millisecond-level delays.'}</p>
+                    <p>${currentLanguage === 'chinese' ? 
+                      '引用: Yue Chen, Guokun Zhang, Lingxiao Guan, Chen Gong, Bozhi Ma, Hongwei Hao, Luming Li, Progress in the development of a fully implantable brain–computer interface: the potential of sensing-enabled neurostimulators, National Science Review, Volume 9, Issue 10, October 2022, nwac099' : 
+                      'Citation: Yue Chen, Guokun Zhang, Lingxiao Guan, Chen Gong, Bozhi Ma, Hongwei Hao, Luming Li, Progress in the development of a fully implantable brain–computer interface: the potential of sensing-enabled neurostimulators, National Science Review, Volume 9, Issue 10, October 2022, nwac099'}</p>
+                `;
+            }
+            
+            content.innerHTML = articleHTML;
+            popup.classList.add('active');
+        }
+        
+        function closeArticlePopup() {
+            const popup = document.getElementById('articlePopup');
+            popup.classList.remove('active');
+        }
+        
+        // Function to play specific video
+        function playVideo(videoSource) {
+            const demoVideo = document.getElementById('demoVideo');
+            const source = demoVideo.querySelector('source');
+            
+            // Update video source
+            source.src = `Pic/${videoSource}`;
+            
+            // Reload and play video
+            demoVideo.load();
+            demoVideo.play();
+            
+            // Scroll to video section
+            document.querySelector('.gif-container').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modals = ['wechatModal','surveyModal','uploadModal'];
+            modals.forEach(modalId => {
+                const modal = document.getElementById(modalId);
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            });
+            
+            const imagePopup = document.getElementById('imagePopup');
+            const articlePopup = document.getElementById('articlePopup');
+            
+            if (event.target == imagePopup) {
+                imagePopup.classList.remove('active');
+            }
+            
+            if (event.target == articlePopup) {
+                articlePopup.classList.remove('active');
+            }
+        }
+        
+        // Smooth scroll to anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('onclick')) return; // Skip if has onclick
+                
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                const navLinks = document.querySelector('.nav-links');
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Set default language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            let preferred = navigator.language.toLowerCase().startsWith('zh') ? 'chinese' : 'english';
+            try { preferred = localStorage.getItem('nnsr-language') || preferred; } catch {}
+            setLanguage(preferred);
+            
+            // Set placeholder image for startup interface
+            const startupImg = document.getElementById('startupImage');
+            startupImg.onerror = function() {
+                // If image doesn't exist, hide the container
+                this.parentElement.style.display = 'none';
+            };
+        });
+    </script>
 </body>
 </html>
